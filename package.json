@@ -5,7 +5,7 @@
     "main": "index.html",
     "repository": "https://github.com/Caleb-Kronstad/bonfireengine.com",
     "author": "Caleb Kronstad",
-    "license": "Unlicense",
+    "license": "Apache 2.0",
     "devDependencies": {
       "@11ty/eleventy": "^2.0.1"
     },
