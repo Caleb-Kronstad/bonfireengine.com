@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../resources/bonfire.png">
+    <title>Projects</title>
+    
+    <link rel="stylesheet" type="text/css" href="../style/nav.css">
+    
+    <!-- Preload gifs -->
+    <link rel="preload" href="../resources/bonfire.gif" as="image" type="image/gif">
+    <link rel="preload" href="../resources/boids.gif" as="image" type="image/gif">
+    <link rel="preload" href="../resources/nifty.gif" as="image" type="image/gif">
+    <link rel="preload" href="../resources/watchpoint.gif" as="image" type="image/gif">
+    <link rel="preload" href="../resources/unstable-arena.gif" as="image" type="image/gif">
+    <link rel="preload" href="../resources/bucket-game.gif" as="image" type="image/gif">
+    <link rel="preload" href="../resources/cozy-christmas.gif" as="image" type="image/gif">
+</head>
+
+<style>
+    html
+    {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #120401;
+        scrollbar-gutter: stable;
+    }
+
+    body
+    {
+        overflow-x: hidden;
+        margin: 5vh;
+        font-family: Helvetica;
+        padding-top: 2vw;
+    }
+
+    .title
+    {
+        display: flex;
+        justify-content: left;
+        margin-left: 32.5%;
+        color: #bc4a34;
+        position: relative;
+        z-index: 20;
+    }
+
+    .project-container
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2vw;
+        width: 100%;
+        position: relative;
+        z-index: 20;
+    }
+    .project
+    {
+        width: 16vw;
+        height: 14vw;
+    }
+    .project-image
+    {
+        width: 100%;
+        height: 60%;
+        object-fit: cover;
+        border-radius: 5%;
+    }
+    .project-title
+    {
+        margin: 0.5vh;
+        color: #bc4a34;
+    }
+    .project-title:visited
+    {
+        color: #bc4a34;
+    }
+    .project-description
+    {
+        margin: 0.5vh;
+        color: #804c39;
+        font-size: 80%;
+    }
+
+    #bonfire-background
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #bonfire-animation
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 12;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #ember-canvas {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: 11;
+    }
+
+    
+    /* Mobile */
+    @media screen and (max-width: 768px) {
+        body
+        {
+            margin: 0;
+            margin-top: 15vh;
+            padding: 2vh;
+            padding-top: 2vh;
+        }
+        
+        .title
+        {
+            justify-content: center;
+            margin-left: 0;
+            font-size: 6vw;
+            text-align: center;
+        }
+
+        .project-container
+        {
+            flex-direction: column;
+            gap: 4vh;
+            margin-bottom: 2vh;
+        }
+
+        .project
+        {
+            width: 80vw;
+            height: auto;
+        }
+
+        .project-image
+        {
+            height: 50vw;
+        }
+
+        .project-title
+        {
+            font-size: 5vw;
+            display: block;
+        }
+
+        .project-description
+        {
+            font-size: 4vw;
+        }
+
+        #bonfire-background,
+        #bonfire-animation
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+    }
+
+</style>
+
+<html>
+    <body>
+
+        <header class="navigation">
+            <nav>
+                <button class="nav-btn" id="home-btn"><b>HOME</b></button>
+                <button class="nav-btn" id="projects-btn"><b>PROJECTS</b></button>
+                <button class="nav-btn" id="hobbies-btn"><b>HOBBIES</b></button>
+                <button class="nav-btn" id="contact-btn"><b>CONTACT</b></button>
+            </nav>
+        </header>
+        
+        <h3 class="title">Projects</h3>
+        <br>
+        <div class="project-container">
+            <div class="project">
+                <a href="https://github.com/Caleb-Kronstad/Bonfire" target="_blank"><img class="project-image" src="../resources/bonfire.gif"></a>
+                <a href="https://github.com/Caleb-Kronstad/Bonfire" class="project-title" target="_blank">Bonfire (WIP)</a>
+                <p class="project-description">A 3D game engine made using C++ and OpenGL, with a focus on architecture and performance</p>
+            </div>
+            <div class="project">
+                <a href="boids/index.html" target="_blank"><img class="project-image" src="../resources/boids.gif"></a>
+                <a href="boids/index.html" class="project-title" target="_blank">Boids Simulation</a>
+                <p class="project-description">A simulation of Boids created using Python and PyGame, includes usage in a demo game</p>
+            </div>
+        </div>
+        <div class="project-container">
+            <div class="project">
+                <a href="nifty-engine/index.html" target="_blank"><img class="project-image" src="../resources/nifty.gif"></a>
+                <a href="nifty-engine/index.html" class="project-title" target="_blank">Nifty Engine</a>
+                <p class="project-description">A 3D game engine made using C++ and OpenGL, with a focus on user interaction and experience</p>
+            </div>
+            <div class="project">
+                <a href="https://ckronstad.itch.io/watchpoint" target="_blank"><img class="project-image" src="../resources/watchpoint.gif"></a>
+                <a href="https://ckronstad.itch.io/watchpoint" class="project-title" target="_blank">Watchpoint</a>
+                <p class="project-description">A 2D stealth game made in Unity for Sock Jam 1</p>
+            </div>
+        </div>
+        <div class="project-container">
+            <div class="project">
+                <a href="unstable-arena/index.html" target="_blank"><img class="project-image" src="../resources/unstable-arena.gif"></a>
+                <a href="unstable-arena/index.html" class="project-title" target="_blank">Unstable Arena (WIP)</a>
+                <p class="project-description">A 3D arena fighting game made in Unreal Engine for Game Developers @ UNCC Fall Game Jam 2025</p>
+            </div>
+            <div class="project">
+                <a href="https://sock8416.itch.io/bucket-game" target="_blank"><img class="project-image" src="../resources/bucket-game.gif"></a>
+                <a href="https://sock8416.itch.io/bucket-game" class="project-title" target="_blank">Bucket Game</a>
+                <p class="project-description">A 2D combat game made in Unity for Sock Jam 2</p>
+            </div>
+        </div>
+        <div class="project-container">
+            <div class="project">
+                <a href="https://calebkronstad.itch.io/a-cozy-christmas" target="_blank"><img class="project-image" src="../resources/cozy-christmas.gif"></a>
+                <a href="https://calebkronstad.itch.io/a-cozy-christmas" class="project-title" target="_blank">A Cozy Christmas</a>
+                <p class="project-description">A 3D horror game made in 3 days using Unity</p>
+            </div>
+            <div class="project">
+                <a href="bonfire/index.html"></a>
+                <a href="bonfire/index.html" class="project-title"></a>
+                <p class="project-description"></p>
+            </div>
+        </div>
+        
+        <img id="bonfire-background" src="../resources/bonfire-background.png" alt="background">
+        <img id="bonfire-animation" src="../resources/bonfire-animation.gif" alt="animation">
+        <canvas id="ember-canvas"></canvas>
+    </body>
+</html>
+
+<script src="../script/nav.js"></script>
+<script src="../script/ember_system.js"></script>

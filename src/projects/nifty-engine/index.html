@@ -1,0 +1,199 @@
+<style>
+
+    html {
+        font-size: 14px;
+        overflow-x: hidden;
+        background-color: rgb(251, 247, 235);
+    }
+    
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        margin: 3rem;
+        font: 1rem Helvetica, sans-serif;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #main-text {
+        font-size: 1.5rem;
+    }
+
+    #title {
+        text-align: center;
+        color: rgb(155, 119, 107);
+    }
+
+    #title h1 {
+        font-size: 5rem;
+    }
+
+    .title-wrapper {
+        display: grid;
+        gap: 3rem;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr) minmax(0, 20rem);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .main-wrapper {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        background-color: rgb(189, 160, 150);
+        width: 100%;
+        left: 0;
+        position: absolute;
+        height: 200%
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190);
+    }
+    
+    nav {
+        line-height: 1.5rem;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+        padding: 1%;
+    }
+
+    .nav-btn {
+        border-radius: 3px;
+        background-color: rgb(251, 247, 235);
+        border: 2px solid rgb(196, 176, 146);
+        padding-top: 5;
+        padding-bottom: 5;
+    }
+
+    .nav-btn:hover {
+        background-color: rgb(219, 191, 182);
+    }
+
+    #in-progress {
+        text-align: center;
+    }
+
+    #current-features {
+        text-align: center;
+    }
+
+</style>
+
+<head><link rel="icon" href="opengl.png"><title>Nifty Engine</title></head>
+
+<html>
+    <body>
+        <header class="navigation">
+            <nav> 
+                <button class="nav-btn" id="btn1"><b>HOME</b></button>  
+                <button class="nav-btn" id="btn2"><b>IN PROGRESS</b></button>  
+                <button class="nav-btn" id="btn3"><b>CURRENT FEATURES</b></button>
+            </nav>
+        </header>
+
+        <main>
+            <div class="title-wrapper">
+                <div></div>
+    
+                <div id="main-text">
+                    <br>
+                    <div id="title">
+                        <h1>NIFTY ENGINE</h1>
+                    </div>
+            
+                    <!-- INTRODUCTION TO ENGINE -->
+                    <p style="text-align: center; font-size: 1.25rem;">
+                        <b>Nifty Engine is a 3D game engine developed in C++ with OpenGL</b>
+                    </p> 
+                </div>
+                
+                <div></div>
+            </div>
+
+            <div class="main-wrapper">
+                <div></div>
+    
+                <div id="main-text">
+                    <div id="in-progress">
+                        <br>
+                        <h2>Features In-Progress</h2>
+                        <p style="text-wrap: nowrap;">Features that are currently being implemented into Nifty Engine</p>
+                        <ul style="text-align: left; font-size: 90%;">
+                            <li>Skinned meshes</li>
+                            <li>Skeletal animation system</li>
+                            <li>API improvements</li>
+                            <li>User interface improvements</li>
+                        </ul>
+                    </div>
+                    <div id="current-features">
+                        <br>
+                        <h2>Current Features</h2>
+                        <p style="text-wrap: nowrap;">Features that can be found in Nifty Engine</p>
+                        <ul style="text-align: left; font-size: 90%;">
+                            <li>Basic physics</li>
+                            <li>Basic collisions</li>
+                            <li>Lighting</li>
+                            <li>Shadows</li>
+                            <li>Shader control</li>
+                            <li>File control</li>
+                            <li>Basic user interface (entity explorer, properties page, file manager, etc.)</li>
+                        </ul>
+
+                        <br>
+                        <video width="560" height="315" controls>
+                            <source src="overall-ne.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <i style="font-size: 70%;">Overall look at the engine</i>
+
+                        <br><br><br>
+                        <video width="560" height="315" controls>
+                            <source src="physicsandcollision-ne.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <i style="font-size: 70%;">Physics and collisions</i>
+
+                        <br><br><br>
+                        <video width="560" height="315" controls>
+                            <source src="filemanager-ne.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <i style="font-size: 70%;">File manager</i>
+                    </div>
+                </div>
+                
+                <div></div>
+            </div>
+        </main>
+        
+    </body>
+</html>
+
+<script>
+    document.getElementById("current-features").style.display = "none";
+    
+    document.getElementById("btn1").onclick = function() {
+        location.href = "../index.html";
+    };
+    document.getElementById("btn2").onclick = function() {
+        document.getElementById("in-progress").style.display = "initial";
+        document.getElementById("current-features").style.display = "none";
+    };
+    document.getElementById("btn3").onclick = function() {
+        document.getElementById("in-progress").style.display = "none";
+        document.getElementById("current-features").style.display = "initial";
+    };
+</script>

@@ -1,0 +1,20 @@
+{
+    "name": "calebkronstad.com",
+    "version": "0.0.1",
+    "description": "Caleb Kronstad",
+    "main": "index.html",
+    "repository": "https://github.com/Caleb-Kronstad/calebkronstad.com",
+    "author": "Caleb Kronstad",
+    "license": "Unlicense",
+    "devDependencies": {
+      "@11ty/eleventy": "^2.0.1"
+    },
+    "scripts": {
+      "build:site": "eleventy --quiet",
+      "build": "npm run build:site",
+      "watch:site": "eleventy --serve",
+      "watch": "npm run watch:site",
+      "serve": "env DEV=true eleventy --quiet --incremental"
+    }
+}
+  

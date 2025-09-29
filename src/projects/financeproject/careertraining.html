@@ -1,0 +1,298 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190);
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    #cont7 {
+        grid-area: g;
+    }
+
+    #cont8 {
+        grid-area: h;
+    }
+
+    #filler {
+        grid-area: z;
+    }
+
+    #cont4 > * {
+        margin-left: 5%;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a b b b"
+                    "d c c c"
+                    "d e f f"
+                    "d g g g"
+                    "d h h h"
+                    "d h h h"
+                    "d z z z"
+                    "d z z z";
+
+        align-items: start;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 10% 18% 12.5% 1fr 10% 1fr 1fr;
+        row-gap: 1%;
+        column-gap: 1%;
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h4 {
+        text-align: center;
+    }
+
+    .info > * {
+        text-align: left;
+        margin-left: 1%;
+        font-size: 90%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>Career Training</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    ⬅️<a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">Career Training</h1>
+        <h4 style="color: rgb(0, 0, 0);">Getting Educated</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+
+                        <a href="goofy.html" id="filler" class="content"> 
+                            <img src="https://piskel-imgstore-b.appspot.com/img/15e6ae80-90c7-11ee-8790-6d71b1fa64b8.gif" alt="space filler" style="width: 100%; height: 100%; margin-top: -20%;">
+                        </a>
+
+                        <div id="cont2" class="content" style="border-bottom: 2px solid rgb(203, 180, 142);">
+                            <p>
+                                Starting out my future, I arrive at college. While Stanford is my dream school, it's unrealistic to believe my acceptance is guaranteed, so I'll be going to go
+                                North Carolina State University (NC State/NCSU) for the purposes of this project (though I don't believe my acceptance is guaranteed there either).
+                            </p>
+                        </div>
+
+                        <div id="cont3" class="content">
+                            <p>
+                                To get into NC State, I need a minimum unweighted GPA of 3.76 and a minimum ACT/SAT score of 26/1230. I plan to be there for 4 years to obtain a bachelor's degree in
+                                computer science. NC State is often regarded as one of North Carolina's best universities for engineering, and computer science falls under that category as well. I would prefer to go 
+                                somewhere in California, as it would be much easier to relocate to Silicon Valley, but the main issue is that it would be much more expensive 
+                                to attend any school in California since it is out-of-state. The in-state tuition at NC State is one of the biggest benefits that draws me to the school (notice the financial
+                                information on the left), along with its excellent academics in the field that I'm passionate about. 
+                            </p>
+                        </div>
+
+                        <div id="cont6" class="content" style="margin-top: 9.75%;">
+                            There are other benefits to NC State such as a great campus, close to home, and near a large city, though I generally don't love cities. The crowds in cities are not appealing to me,
+                            so I would generally like to be somewhere more urban-esque. I have previously visited NC State's campus, and I think it's definitely one of the upsides to attending school there. 
+                        </div>
+
+                        <div id="cont7" class="content">
+                            Another thing NC State brings to the table is their athletic program. I don't play any sports, but I like to observe the ongoing rivalry between State, Carolina, and Duke, though 
+                            most of the time it feels like State is the third wheel to Carolina and Duke. Of course, I could be completely wrong since I really don't look into it that much, but other
+                            people in my family are much more invested in it than me. Speaking of my family, going to NC State would allow me to see them more often. My dad works with a lot of college students so he goes
+                            to Duke and State quite a lot, but he generally works with graduate students, so he would be on the other side of campus. While seeing my family more often 
+                            would be a good thing, it nullifies one of my strongest reasons for being excited to head off to college: independence.
+                        </div>
+
+                        <div id="cont5" class="content" style="margin-top: -10%;">
+                            <img src='NCSUlogo.png' style="width: 100%; height: 100%;">
+                        </div>
+
+                        <div id="cont1" class="content" style="margin-top: 10%;">
+                            <img src='ncstatecampus.jpg' style="width: 100%; height: 100%;">
+                        </div>
+
+                        <div id="cont8" class="content" style="margin-top: 7.5%;">
+                            <img src='ncsuathletics.jpg' style="width: 100%; height: 100%;">
+                        </div>
+
+                        <div id="cont4" class="content" style="border: 2px dashed rgb(203, 180, 142); margin-bottom: 10%;">
+                            <h2>Finances</h2>
+
+                            <p>
+                                <b><u>Cost of 1 Year</u></b><br>
+                                Tuition: $9,128<br>
+                                Room & Board: $12,748<br>
+                                Books: $854<br>
+                                Travel: $200<br>
+                                Other:$3,022<br>
+                                <b>Total Cost: $25,952</b>
+                                
+                                <br><br>
+    
+                                <b><u>Aid for 1 Year</u></b><br>
+                                Federal Grant: $3,390 <br>
+                                Federal Loan: $5,500 <br>
+                                Parent Aid: $12,000 <br>
+                                Job in College: $4,500 <br>
+                                <b>Total Aid: $25,390</b>
+    
+                                <br><br>
+    
+                                <b><u>Net Cost for 1 Year</u></b><br>
+                                Cost of 1 year: $25,952<br>
+                                Aid for 1 year: $25,390<br>
+                                <b>Loan Total: $562</b>
+    
+                                <br><br>
+    
+                                <b><u>Cost of 4 Years in 2024</u></b><br>
+                                Total Cost: $111,830 (3% Tuition Inflation)
+    
+                                <br><br>
+    
+                                <b><u>Aid for 4 years in 2024</u></u></b><br>
+                                Federal Grants: $13,560<br>
+                                Federal Loans: $27,000<br>
+                                Parent Aid: $48,000<br>
+                                Job in College: $18,000<br>
+                                <b>Total Aid: $106,560</b>
+    
+                                <br><br>
+    
+                                <b><u>Net Cost for 4 Years in 2024</u></b><br>
+                                Cost of 4 years: $111,830<br>
+                                Aid for 4 years: $106,560<br>
+                                <b>Loan Total: $5,270</b>
+    
+                                <br><br>
+    
+                                <b><u>Debt After 4 Years</u></b><br>
+                                Federal Loans:<br>
+                                $5,500 - Year 1<br>
+                                $6,500 - Year 2<br>
+                                $7,500 - Year 3<br>
+                                $7,500 - Year 4<br>
+                                Private Loans:<br>
+                                $5,270 - 4 Years Combined<br>
+                                <b>Total Debt: $32,270</b> (no interest calculated)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>

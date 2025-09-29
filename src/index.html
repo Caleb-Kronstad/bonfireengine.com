@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="resources/bonfire.png">
+    <title>Home</title>
+    
+    <link rel="stylesheet" type="text/css" href="style/nav.css">
+
+    <!-- Preload -->
+    <link rel="preload" href="resources/optimusprinceps/OptimusPrinceps.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+
+<style>
+    @font-face {
+        font-family: 'Optimus Princeps';
+        src: url('resources/optimusprinceps/OptimusPrinceps.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    html
+    {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #120401;
+        scrollbar-gutter: stable;
+    }
+
+    body
+    {
+        overflow-x: hidden;
+        overflow-y: hidden;
+        margin: 5vh;
+        font-family: Helvetica;
+        font-size: 1vw;
+        padding-top: 2vw;
+    }
+    
+    .title
+    {
+        width: 100%;
+        padding-top: 1vh;
+        font-size: 4vw;
+        text-align: center;
+        color: #802615;
+    }
+
+    .title h1
+    {
+        position: relative;
+        z-index: 20;
+        margin-top: 10vh;
+        margin-bottom: 0.5vh;
+    }
+
+    .title p
+    {
+        margin: 0.5vh;
+        font-size: 30%;
+        color: #802615;
+        font-family: monospace;
+    }
+
+    #bonfire-background
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #bonfire-animation
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 12;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #ember-canvas {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: 11;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 768px) {
+        body
+        {
+            margin: 2vh;
+            padding-top: 4vw;
+        }
+
+        .title
+        {
+            font-size: 8vw;
+        }
+
+        .title h1 {
+            margin-top: 15vh;
+            margin-bottom: 2vh;
+            font-size: 10vw;
+        }
+
+        .title p {
+            font-size: 5vw;
+        }
+
+        #bonfire-background
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+
+        #bonfire-animation
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+    }
+    
+</style>
+
+<html>
+    <body>
+        <header class="navigation">
+            <nav>
+                <button class="nav-btn" id="home-btn"><b>HOME</b></button>
+                <button class="nav-btn" id="projects-btn"><b>PROJECTS</b></button>
+                <button class="nav-btn" id="hobbies-btn"><b>HOBBIES</b></button>
+                <button class="nav-btn" id="contact-btn"><b>CONTACT</b></button>
+                <!-- <a href="acozychristmas\a-cozy-christmas.html">A Cozy Christmas - First game I've ever released!</a> -->
+            </nav>
+        </header>
+
+        <header class="title">
+            <h1>BONFIRE</h1>
+            <p>A 3D GRAPHICS ENGINE</p>
+            <img id="bonfire-background" src="resources/bonfire-background.png" alt="background">
+            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
+        </header>
+
+        <br><br>
+
+        <canvas id="ember-canvas"></canvas>
+    </body>
+</html>
+
+<script>
+    document.getElementById("home-btn").onclick = function() {
+    location.href = "index.html";
+    };
+    document.getElementById("projects-btn").onclick = function() {
+        location.href = "projects\\index.html";
+    };
+    document.getElementById("hobbies-btn").onclick = function() {
+        location.href = "hobbies\\index.html"
+    };
+    document.getElementById("contact-btn").onclick = function() {
+        location.href = "contact\\index.html"
+    };
+</script>
+
+<script src="script/ember_system.js"></script>

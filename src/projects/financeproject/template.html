@@ -1,0 +1,197 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: blanchedalmond;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a a b"
+                    "c c c"
+                    "d d d";
+
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .info > * {
+        text-align: left;
+        margin-left: 1%;
+        font-size: 90%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>Template</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    <a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">Template</h1>
+        <h4 style="color: rgb(0, 0, 0);">Template</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+
+                        <div id="cont2" class="content"> 
+                            <img src="https://piskel-imgstore-b.appspot.com/img/15e6ae80-90c7-11ee-8790-6d71b1fa64b8.gif" alt="weeeeeeeeeeeeeee" style="width: 100%; height: 100%;">
+                        </div>
+                        
+                        <div id="cont1" class="content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In hendrerit gravida rutrum quisque non tellus. 
+                                Pellentesque habitant morbi tristique senectus et netus et. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. 
+                                Sit amet justo donec enim diam vulputate ut pharetra sit. Neque vitae tempus quam pellentesque nec. Pharetra diam sit amet nisl. 
+                            </p>
+                        </div>
+
+                        <div id="cont3" class="content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In hendrerit gravida rutrum quisque non tellus. 
+                                Pellentesque habitant morbi tristique senectus et netus et. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. 
+                                Sit amet justo donec enim diam vulputate ut pharetra sit. Neque vitae tempus quam pellentesque nec. Pharetra diam sit amet nisl. 
+                            </p>
+                        </div>
+
+                        <div id="cont4" class="content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In hendrerit gravida rutrum quisque non tellus. 
+                                Pellentesque habitant morbi tristique senectus et netus et. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. 
+                                Sit amet justo donec enim diam vulputate ut pharetra sit. Neque vitae tempus quam pellentesque nec. Pharetra diam sit amet nisl. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>

@@ -1,0 +1,272 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190);
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a a b"
+                    "c c c"
+                    "e d d"
+                    "e d d"
+                    "f f f";
+
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 0.8fr 0.3fr;
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    table{
+        display: table;
+        border: 2px solid rgb(203, 180, 142);
+    }
+
+    th, td{
+        display: table-cell;
+        border: 2px dashed rgb(203, 180, 142);
+        padding: 2.5%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>Employment</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    ⬅️<a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">Employment</h1>
+        <h4 style="color: rgb(0, 0, 0);">Getting Hired</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+
+                        <div id="cont2" class="content" style="margin-top: 7.5%; margin-left: 5%;"> 
+                            <img src="softwareengineer.jpg" style="width: 95%; height: 100%;">
+                        </div>
+
+                        <div id="cont5" class="content"> 
+                            <img src="epicgames.png" style="width: 100%; height: 100%; margin-top: 10%;">
+                        </div>
+
+                        <div id="cont1" class="content">
+                            <p>
+                                After graduating from NC State, I will be in need of a job. Per my expected degree and experience, I decided to choose an entry level 
+                                <a href="https://boards.greenhouse.io/epicgames/jobs/4859046004?t=28c0fa9e4us" target="_blank">game server engineer position</a> 
+                                at Epic Games, located in Cary, NC. The position requirements are as follows:
+                            </p>
+
+                            <ul>
+                                <li>Experience shipping networked multiplayer games</li>
+                                <li>Excellent C++ skills, with a familiarity of scripting systems like Blueprint, Lua, Python, etc.</li>
+                                <li>Experience in a cross-disciplinary development environment, with excellent communication skills</li>
+                                <li>Strong grasp of game networking concepts</li>
+                                <li>Experience developing in a large codebase at a fast pace, making trade-offs between usability, performance, and memory</li>
+                                <li>Self-motivated, strong work ethic, and able to work independently</li>
+                                <li>Keen interest in games</li>
+                            </ul>
+                        </div>
+
+                        <div id="cont3" class="content">
+                            <p>
+                                I expect to have all of these things and more after graduating from college with a BS in computer science, so I believe this job would be obtainable for me. 
+                                According to <a href="https://www.levels.fyi/companies/epic-games/salaries/software-engineer/levels/l1" target="_blank">levels.fyi</a>, the salary of someone in a 
+                                position similar to this at Epic tends to be around $91,613, and <a href="https://www.salary.com/tools/salary-calculator/game-engineer" target="_blank">salary.com</a> seems to 
+                                generally agree. This is a very good salary to have just out of college, and the job also includes benefits to help me pay for other needed things (financials 
+                                are covered more extensively on the <a href="budgeting.html">budgeting page</a>)
+                                <br>
+
+                                <div style="width: max-content;">
+                                    <table style="table-layout:inherit;">
+                                        <tr>
+                                            <th>Taxes</th>
+                                            <th>Pay Deduction</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Before Taxes</td>
+                                            <td>$0 (0%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Federal Income Tax</td>
+                                            <td>$12,923 (14.11%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>State Income Tax</td>
+                                            <td>$3,935 (4.30%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Payroll (FICA) Tax</td>
+                                            <td>$7,008 (7.65%)</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <p><b>Total after tax: $67,747</b></p>
+                                </div>
+
+                                If we divide $67,747 by 12 months we will get my monthly pay, which ends up being $5,645 per month. 
+                                This is incredibly good for my first job, especially with all the benefits offered.
+                            </p>
+                        </div>
+
+                        <div id="cont4" class="content">
+                            <p>
+                                The position's many benefits include:
+                            </p>
+
+                            <ul>
+                                <li>100% coverage of insurance premiums</li>
+                                <li>Coverage includes medical, dental, vision, long term disability, and life insurance</li>
+                                <li>401k with competitive match and profit share</li>
+                                <li>Robust mental well-being program offered through Modern Health, which provides free therapy and coaching</li>
+                                <li>Events and company-wide paid breaks</li>
+                                <li>Unlimited PTO and sick time</li>
+                            </ul>
+                        </div>
+
+                        <div id="cont6" class="content">
+                            <p>
+                                Reading through the list of benefits my jaw was wide open like "wow, they actually care about their employees". As the developer
+                                of Fortnite, Epic Games can sometimes get a bad rap for some poor choices they've made with the game and its systems, but as a
+                                developer myself I see them more as the creators of Unreal Engine (a game development engine), which has dominated the game engine
+                                market recently (especially with Unity alienating their userbase with unexpected price changes and added fees). 
+
+                                <br><br>
+                                At Epic, I would likely be working a lot every week according to reviews from people who are employed or have been employed there, but 
+                                with all the other benefits of the position I believe it would be worth it, especially for my first job after college.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>

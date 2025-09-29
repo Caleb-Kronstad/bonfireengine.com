@@ -1,0 +1,202 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190);
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a a b"
+                    "c c c";
+
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .info > * {
+        text-align: left;
+        margin-left: 1%;
+        font-size: 90%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>Insurance</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    ⬅️<a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">Insurance</h1>
+        <h4 style="color: rgb(0, 0, 0);">Getting Protected</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+
+                        <div id="cont2" class="content"> 
+                            <img src="healthinsurance.jpg" style="width: 97.5%; height: 100%; margin-top: 5%;">
+                        </div>
+
+                        <div id="cont3" class="content"> 
+                            <img src="insurance.jpg" style="width: 60%; height: 80%;">
+                        </div>
+                        
+                        <div id="cont1" class="content">
+                            <p>
+                                This is where the best part of the job I chose comes in. The job at Epic gives some amazing benefits, the best of which is them covering 100% of the premiums 
+                                for several types of insurances. 
+                                <br><br>The insurances included are:
+                                <ul>
+                                    <li>Health insurance</li>
+                                    <li>Dental insurance</li>
+                                    <li>Vision insurance</li>
+                                    <li>Long term disability insurance</li>
+                                    <li>Life insurance</li>
+                                </ul>
+
+                                Having this benefit means the only insurances I have to pay for are renter's insurance and car insurance. The health, dental, and vision 
+                                insurances are especially helpful because I have yearly/bi-yearly appointments for each of them. The disability and life insurances are 
+                                not as useful for me as I don't have any dependents and my job is not dangerous, but if I get the premiums 100% paid then I think it's
+                                worth it to just have.
+                                <br>
+                                <br>
+                                Many financial planners will say that insurance is the most important thing you can buy to ensure a financially secure future. I agree,
+                                though I don't believe we should have to pay for many of the things that we have insured, but it's the United States and we aren't changing
+                                any time soon, so I better get on board.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>

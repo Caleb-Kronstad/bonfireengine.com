@@ -1,0 +1,350 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190);
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a a a";
+
+        align-items: start;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    table{
+        display: table;
+        border: 2px solid rgb(203, 180, 142);
+    }
+
+    th{
+        font-size: 110%;
+        display: table-cell;
+        border: 2px solid rgb(203, 180, 142);
+        padding: 2%;
+    }
+
+    .table-sub-header {
+        border: 2px solid rgb(203, 180, 142);
+        padding: 2%;
+    }
+
+    .table-left {
+        border-right: 2px dashed rgb(203, 180, 142);
+        border-bottom: 2px dashed rgb(203, 180, 142);
+        padding: 2%;
+        font-size: 95%;
+    }
+
+    .table-right {
+        border-bottom: 2px dashed rgb(203, 180, 142);
+        padding: 2%;
+        font-size: 95%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>Budgeting</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    ⬅️<a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">Budgeting</h1>
+        <h4 style="color: rgb(0, 0, 0);">Getting Organized</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+                        <div id="cont1" class="content" style="padding: 0%; margin-top: 2%; margin-bottom: 2%;">
+                            <h4>Working with a monthly take-home pay of $5,645, my budget would look something like this.</h4>
+
+                            <table style="max-width: 100%; width: 1920px;">
+                                <tr>
+                                    <th>Budgeted Item</th>
+                                    <th>Amount</th>
+                                </tr>
+
+                                <!-- Savings -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header">💵 Savings:</td>
+                                    <td class="table-sub-header">--</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Emergency</td>
+                                    <td class="table-right">$1,082.25</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Retirement</td>
+                                    <td class="table-right">$946.20</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Investments</td>
+                                    <td class="table-right">$310.17</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left" style="border-bottom: none;"> - Vacation</td>
+                                    <td class="table-right" style="border-bottom: none;">$50.00</td>
+                                </tr>
+
+                                <!-- Housing -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header">🏠 Housing:</td>
+                                    <td class="table-sub-header">--</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Rent</td>
+                                    <td class="table-right">$1,198.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Renter's Insurance</td>
+                                    <td class="table-right">$10.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left" style="border-bottom: none;"> - Utilities (Electricity, Gas, Water)</td>
+                                    <td class="table-right" style="border-bottom: none;">$185.25</td>
+                                </tr>
+
+                                <!-- Food -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header">🍛 Food:</td>
+                                    <td class="table-sub-header">--</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Groceries</td>
+                                    <td class="table-right">$250.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left" style="border-bottom: none;"> - Restaurants</td>
+                                    <td class="table-right" style="border-bottom: none;">$200.00</td>
+                                </tr>
+
+                                <!-- Transportation -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header">🚗 Transportation:</td>
+                                    <td class="table-sub-header">--</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Car Payment</td>
+                                    <td class="table-right">Paid in Full</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Gas</td>
+                                    <td class="table-right">$4.84</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left" style="border-bottom: none;"> - Car Repairs</td>
+                                    <td class="table-right" style="border-bottom: none;">$25.00</td>
+                                </tr>
+
+                                <!-- Medical -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header">🏥 Insurance:</td>
+                                    <td class="table-sub-header">--</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Car Insurance</td>
+                                    <td class="table-right">$132.67</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Dental Insurance</td>
+                                    <td class="table-right">Covered by Epic</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Vision Insurance</td>
+                                    <td class="table-right">Covered by Epic</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Long Term Disability Insurance</td>
+                                    <td class="table-right">Covered by Epic</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Life Insurance</td>
+                                    <td class="table-right">Covered by Epic</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left" style="border-bottom: none;"> - Health Insurance</td>
+                                    <td class="table-right" style="border-bottom: none;">Covered by Epic</td>
+                                </tr>
+
+                                <!-- Other -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header">🎁 Other:</td>
+                                    <td class="table-sub-header">--</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Gifts</td>
+                                    <td class="table-right">$250.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Personal Projects</td>
+                                    <td class="table-right">$500.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left"> - Phone</td>
+                                    <td class="table-right">$65.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left" style="border-bottom: none;"> - Entertainment</td>
+                                    <td class="table-right" style="border-bottom: none;">$100.00</td>
+                                </tr>
+
+                                <!-- Debt -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header">🏦 Debt:</td>
+                                    <td class="table-sub-header">--</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-left" style="border-bottom: none;"> - Student Loans</td>
+                                    <td class="table-right" style="border-bottom: none;">$335.62</td>
+                                </tr>
+
+                                <!-- Total -->
+                                <tr style="background-color: rgb(255, 230, 194); ">
+                                    <td class="table-sub-header"><b>Total:</b></td>
+                                    <td class="table-sub-header"><b>$5,645</b></td>
+                                </tr>
+                            </table>
+
+                            <br>
+
+                            <p>
+                                Epic covering the premiums for many of the insurances is a huge benefit, even for the ones that I wouldn't typically purchase at this point such as
+                                life insurance or long term disability insurance. This allows me to pour a lot of money into my retirement account and into my emergency savings fund,
+                                each of which will be beneficial to my financial future in the long term. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>

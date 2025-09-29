@@ -1,0 +1,202 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190);
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a a a"
+                    "b c d"
+                    "e e e";
+
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .info > * {
+        text-align: left;
+        margin-left: 1%;
+        font-size: 90%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>Retirement</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    ⬅️<a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">Retirement</h1>
+        <h4 style="color: rgb(0, 0, 0);">Getting Old</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+
+                        <div id="cont2" class="content"> 
+                            <img src="retirement-savings.jpg" style="width: 120%; height: 120%; margin-left: 5%;">
+                        </div> 
+                        
+                        <div id="cont4" class="content"> 
+                            <img src="coinjar.jpg" style="width: 75%; height: 100%; margin-left: 25%;">
+                        </div>
+                        
+                        <div id="cont1" class="content">
+                            <p>
+                                Planning for my future will be super important as I begin my working life. The best way I can do this is with a retirement account. Epic offers
+                                a 401k with a "competitive match", so I would use that up to the match then put the rest of my retirement money into a Roth IRA. If we assume
+                                the match is 5%, this is what the retirement accounts would look like after 40 years (10% in 401k and 10% in IRA): 
+                            </p>
+                        </div>
+
+                        <div id="cont3" class="content" style="margin-left: 27.5%;">
+                            <p>
+                                Since the 401k is pre-tax with a 5% match, I will be putting 5% of $7,634, so $381.70, into it every month. Since the Roth is post-tax, I will be putting
+                                10% of $5,645, so $564.50, into it every month. This means that I will be putting 15% into retirement accounts, but with the match it will be a total of 20%.
+                                After 40 working years with a 7% average return, I would end up with over 4 million dollars in my retirement accounts combined, which is more than enough to
+                                retire on.
+                            </p>
+                        </div>
+
+                        <div id="cont5" class="content">
+                            <p>
+                                Clearly, there is a very high chance I won't be working at the same place in 40 years, but hopefully I will only continue to move up the
+                                ladder, and will be able to retire on an amount similar to this.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>

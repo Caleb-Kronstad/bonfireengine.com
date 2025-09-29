@@ -1,0 +1,200 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190);
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a a a"
+                    "b b b";
+
+        align-items: start;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40% 50%;
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h3 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .info > * {
+        text-align: left;
+        margin-left: 1%;
+        font-size: 90%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>My Possible Future</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    ⬅️<a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">My Possible Future</h1>
+        <h4 style="color: rgb(0, 0, 0); text-align: center;">Getting Started</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+
+                        <div id="cont1" class="content">
+                            <h4>About the project and website</h4>
+                            <p>
+                                For the past two weeks or so I have been building this section of my website to represent what my life could possibly 
+                                look like after college. This included creating eight different pages that cover the possibilities of my financial life, job, housing, etc. 
+                                I did this for my Economics and Personal Finance final project, but it has been a real 
+                                adventure getting to re-explore the intricacies of HTML and CSS (even though my code is a mess). I probably wont end 
+                                up using JavaScript at all for this project, but I will likely use it in other parts of this website. One key thing to be aware of
+                                before continuing is that we were granted a $10,000 allowance based on the assumption that we would save and recieve graduation gifts.
+                            </p>
+                        </div>
+
+                        <div id="cont2" class="content" style="margin-bottom: -2%;">
+                            <h4>Pages</h4>
+
+                            <div style="max-height: 250px; width: 104%; margin-left: -4%; margin-bottom: -1.5%; overflow-y: scroll; background-color: rgb(255, 230, 194); padding: 2%; font-size: 100%; border-top: 2px solid rgb(203, 180, 142);">
+                                <div style="margin-left: 2.5%;">
+                                    <ol style="line-height: 200%;">
+                                        <li><a href="careertraining.html">Career Training</a></li>
+                                        <li><a href="employment.html">Employment</a></li>
+                                        <li><a href="housing.html">Housing</a></li>
+                                        <li><a href="transportation.html">Transportation</a></li>
+                                        <li><a href="insurance.html">Insurance</a></li>
+                                        <li><a href="retirement.html">Retirement</a></li>
+                                        <li><a href="savings.html">Savings</a></li>
+                                        <li><a href="budgeting.html">Budgeting</a></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>

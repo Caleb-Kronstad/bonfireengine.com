@@ -1,0 +1,214 @@
+<!-- 
+    Created by Caleb Kronstad 
+    I just started learning HTML and CSS, so a lot of this is going to be janky
+-->
+
+<style>
+    html{
+        background-color: rgb(251, 247, 235);
+    }
+
+    body {
+        /* width: 100%; */
+        max-width: max-content;
+        max-height: fit-content;
+        font: 1vw Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    .navigation{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        padding: 1%;
+        background-color: rgb(253, 228, 190); 
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+    }
+
+    nav > * {
+        text-wrap: nowrap;
+    }
+
+    .navright > * {
+        margin-right: 2.5%;
+    }
+
+    .box {
+        width: 75%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        border-radius: 0%;
+        padding: 1%;
+        background-color: blanchedalmond;
+        line-height: 175%;
+    }
+
+    #cont1 {
+        grid-area: a;
+    }
+
+    #cont2 {
+        grid-area: b;
+    }
+
+    #cont3 {
+        grid-area: c;
+    }
+    
+    #cont4 {
+        grid-area: d;
+    }
+
+    #cont5 {
+        grid-area: e;
+    }
+
+    #cont6 {
+        grid-area: f;
+    }
+
+    .text-area {
+        display: grid;
+
+        grid-template-areas: 
+                    "a a a"
+                    "b d d"
+                    "e c c";
+
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 15% 32.5%;
+    }
+
+    .content {
+        height: max-content;
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .bounding-box {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1, h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .info > * {
+        text-align: left;
+        margin-left: 1%;
+        font-size: 90%;
+    }
+
+</style>
+
+<head><link rel="icon" href="c_key.png"><title>Transportation</title></head>
+
+<HTML>
+    <body>
+        <!-- Navigation Section -->
+        <header class="navigation">
+            <!-- <h3 style="text-align: center;">Navigation</h3> -->
+            <nav>
+                <div>
+                    ⬅️<a href="../index.html">calebkronstad.com</a>
+                </div>
+                
+                <div class="navright">
+                    <a href="mypossiblefuture.html">My Possible Future</a>
+                    <a href="careertraining.html">Career Training</a> 
+                    <a href="employment.html">Employment</a>
+                    <a href="housing.html">Housing</a>
+                    <a href="transportation.html">Transportation</a>
+                    <a href="insurance.html">Insurance</a>
+                    <a href="retirement.html">Retirement</a>
+                    <a href="savings.html">Savings</a>
+                    <a href="budgeting.html">Budgeting</a>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <h1 style="margin-top: 50px; color: rgb(231, 82, 32);">Transportation</h1>
+        <h4 style="color: rgb(0, 0, 0);">Getting Around</h4>
+
+        <section class="box-sections">
+            <div class="container">
+
+                <br>
+
+                <!-- Main Section -->
+                <div class="box">
+                    <div class="text-area">
+
+                        <div id="cont2" class="content" style="margin-top: 10%; margin-left: 7.5%;"> 
+                            <a href="https://raleigh.craigslist.org/cto/d/pleasant-garden-2015-ford-focus-titanium/7694359974.html" target="_blank">
+                                <img src="car.jpg"  style="width: 100%; height: 100%;">
+                            </a>
+                        </div>
+
+                        <div id="cont3" class="content" style="margin-left: 5%; margin-top: 4%; height: 90%; width: 90%;"> 
+                            <a href="https://www.kbb.com/ford/focus/2015/titanium-sedan-4d/?category=sedan&color=black&condition=good&intent=buy-used&mileage=122000&options=6533482%7Ctrue%7C6131247%7Ctrue&pricetype=retail&vehicleid=403077" target="_blank">
+                                <img src="kbb.jpg"  style="width: 100%; height: 100%;">
+                            </a>
+                        </div>
+
+                        <div id="cont1" class="content">
+                            <p>
+                                In order to get to work, I need transportation. I decided to search on craigslist for a suitable 4-door car, and eventually found a 
+                                <a href="https://raleigh.craigslist.org/cto/d/pleasant-garden-2015-ford-focus-titanium/7694359974.html" target="_blank">2015 Ford Focus Titanium</a>.
+                                This car is in good condition, has 122,000 miles, and a clean title. These are all positive things, especially at the price point of $5,900.
+                                The current owner says the 4-liter engine is capable of 30 mpg, which will further help my gas costs. 
+                            </p>
+                        </div>
+
+                        <div id="cont4" class="content" style="margin-left: 5%; width: 90%;">
+                            <p></p>
+                                Since the commute is
+                                about 1.1 miles (2.2 round trip), I would end up paying about $4.84 for gas each month, which is so
+                                insanely low I'm almost questioning my math;
+                                <br>
+                                ($3.00/gal * ((2.2 mil * 22 days) / 30 mpg))
+                                <br>
+                                Although, I guess it does make some sense due to the brevity of my commute. To be honest, I think it would almost be better to just walk to
+                                work. 1.1 miles is not that far, and getting exercise before going to work every day would be beneficial. The only thing that I think would make
+                                me regret that is the walk home after a long day of working.
+                            </p>
+                        </div>
+
+                        <div id="cont5" class="content" style="margin-left: 7.5%; width: 90%;">
+                            <p>
+                                I am buying my car in a private sale, so I will be paying with cash and in full after meeting with the seller. To do this, I will be dipping into my
+                                $8,021 of remaining savings. After buying this car, I will be down to $2,121 remaining to spend on other items I need. Car insurance will cost me about $132.67 each month,
+                                the registration will cost me $38.75 each year, and the property taxes on the car will be about $92.27 each year. I chose this car because it looked the 
+                                nicest with the least issues within my price range.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</HTML>
+
+<script>
+
+</script>
