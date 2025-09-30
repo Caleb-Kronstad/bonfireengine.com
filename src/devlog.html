@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="Favicon/Bonfire_Icon.png">
+		<link rel="stylesheet" href="CSS/General_Stylesheet.css">
+		<meta name="author" content="Levi Diller">
+		<title> Devlog </title>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<button class="nav-btn" id="Home-btn"><b>Home</b></button>
+				<button class="nav-btn" id="Download-btn"><b>Download</b></button>
+				<button class="nav-btn" id="Showcase-btn"><b>Showcase</b></button>
+				<button class="nav-btn" id="Future Plans-btn"><b>Future Plans</b></button>
+				<button class="nav-btn" id="Devlog-btn"><b>Devlog</b></button>
+			</nav>
+		</header>
+		
+		<script>
+			document.getElementById("Home-btn").onclick = function() {
+				location.href = "index.html";
+			};
+			document.getElementById("Download-btn").onclick = function() {
+				location.href = "download.html";
+			};
+			document.getElementById("Showcase-btn").onclick = function() {
+				location.href = "Showcase.html"
+			};
+			document.getElementById("Future Plans-btn").onclick = function() {
+				location.href = "Future_Plans.html"
+			};
+			document.getElementById("Devlog-btn").onclick = function() {
+				location.href = "devlog.html";
+			};
+		</script>
+		
+		<main>
+			<h2>Contact Me!</h2>
+			<p>Phone:+1 (234)-567-8910</p>
+			<p>Email: caleb@calebkronstad.com</p>
+			
+			<h3>Monthly/weekly blog posts</h3>
+			
+			<h3>Development challenges and solutions</h3>
+			
+			<h3>New feature announcements</h3>
+			
+			<h3>Technical deep-dives</h3>
+		</main>
+		
+		<footer class="bottem">
+            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
+        </footer>
+
+
+        <canvas id="ember-canvas"></canvas>
+	<script>
+		function clamp(value, min, max) {
+			return Math.min(Math.max(value, min), max);
+		}
+	</script>
+	<canvas id="bg"></canvas>
+	<script src="Script/ember_system.js"></script>
+	<script src="Script/Night-to-Day_Background.js"></script>	
+	</body>
+</html>

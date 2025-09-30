@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="Favicon/Bonfire_Icon.png">
+		<link rel="stylesheet" href="CSS/General_Stylesheet.css">
+		<meta name="author" content="Levi Diller">
+		<title> Future Plans </title>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<button class="nav-btn" id="Home-btn"><b>Home</b></button>
+				<button class="nav-btn" id="Download-btn"><b>Download</b></button>
+				<button class="nav-btn" id="Showcase-btn"><b>Showcase</b></button>
+				<button class="nav-btn" id="Future Plans-btn"><b>Future Plans</b></button>
+				<button class="nav-btn" id="Devlog-btn"><b>Devlog</b></button>
+			</nav>
+		</header>
+		
+		<script>
+			document.getElementById("Home-btn").onclick = function() {
+				location.href = "index.html";
+			};
+			document.getElementById("Download-btn").onclick = function() {
+				location.href = "download.html";
+			};
+			document.getElementById("Showcase-btn").onclick = function() {
+				location.href = "Showcase.html"
+			};
+			document.getElementById("Future Plans-btn").onclick = function() {
+				location.href = "Future_Plans.html"
+			};
+			document.getElementById("Devlog-btn").onclick = function() {
+				location.href = "devlog.html";
+			};
+		</script>
+		
+		<main>
+			<h3>Short-Term Goals</h3>
+			<ul>
+				<li>Make a particle system</li>
+				<li>Make a particle accelerator</li>
+				<li>Make it 3-D capable</li>
+			</ul>
+			
+			<h3>Long Term Vision</h3>
+			<p>
+				Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+			</p>
+			
+			<h3>Consideration Process for Feature Requests</h3>
+			<ul>
+				<li>Submit a request</li>
+				<li>We look at it</li>
+				<li>We develop it (or don't and provide a reason why)</li>
+			</ul>
+		</main>
+		
+		<footer class="bottem">
+            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
+        </footer>
+
+
+        <canvas id="ember-canvas"></canvas>
+	<script>
+		function clamp(value, min, max) {
+			return Math.min(Math.max(value, min), max);
+		}
+	</script>
+	<canvas id="bg"></canvas>
+	<script src="Script/ember_system.js"></script>
+	<script src="Script/Night-to-Day_Background.js"></script>
+	</body>
+</html>
