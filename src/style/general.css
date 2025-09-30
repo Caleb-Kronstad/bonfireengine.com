@@ -20,9 +20,7 @@
 	body {
 	  background: linear-gradient(to top, #2D0D01, #000000);
 	  color: #fff;
-	  font-family: 'DarkSouls';
-
-	  transition: background 90ms linear;
+	  font-family: Helvetica;
 	}
 	
 	#bg {
@@ -87,51 +85,37 @@
 	}
 	
 	h1 {
-		
-		font-family: Papyrus;
 		font-size: 30px;
 	}
 	
 	h2 {
-		
-		font-family: Papyrus;
 		font-size: 30px;
 		
 	}
 	
 	h3 {
-		
-		font-family: 'DarkSouls';
 		font-size: 30px;
 		
 	}
 	
 	ul {
-		
-		font-family: Papyrus;
 		font-size: 30px;
 		
 	}
 	
 	ol {
-		
-		font-family: Papyrus;
 		font-size: 30px;
 		
 	}
 	
 	li {
-		
-		font-family: Papyrus;
 		font-size: 30px;
 		
 	}
 	
 	p {
-		
-		font-family: "DarkSouls", Helvetica;
+
 		font-size: 30px;
-		
 	}
 	
 	

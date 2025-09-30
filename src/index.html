@@ -3,11 +3,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>	Bonfire </title>
+		<title>Bonfire</title>
 		<meta name="author" content="Levi Diller">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="Favicon/Bonfire_Icon.png">
-		<link rel="stylesheet" href="CSS/General_Stylesheet.css">
+		<link rel="icon" href="resources/favicon_placehoder.png">
+		<link rel="stylesheet" href="style/general.css">
 	</head>
 	
 	
@@ -17,28 +17,12 @@
 				<button class="nav-btn" id="Home-btn"><b>Home</b></button>
 				<button class="nav-btn" id="Download-btn"><b>Download</b></button>
 				<button class="nav-btn" id="Showcase-btn"><b>Showcase</b></button>
-				<button class="nav-btn" id="Future Plans-btn"><b>Future Plans</b></button>
+				<button class="nav-btn" id="Future-Plans-btn"><b>Future Plans</b></button>
 				<button class="nav-btn" id="Devlog-btn"><b>Devlog</b></button>
 			</nav>
 		</header>
 		
-		<script>
-			document.getElementById("Home-btn").onclick = function() {
-				location.href = "index.html";
-			};
-			document.getElementById("Download-btn").onclick = function() {
-				location.href = "download.html";
-			};
-			document.getElementById("Showcase-btn").onclick = function() {
-				location.href = "Showcase.html"
-			};
-			document.getElementById("Future Plans-btn").onclick = function() {
-				location.href = "Future_Plans.html"
-			};
-			document.getElementById("Devlog-btn").onclick = function() {
-				location.href = "devlog.html";
-			};
-		</script>
+		<script src="script/nav.js"></script>
 		
 		<main>
 			<h2>What is Bonfire?</h2> <br/>
@@ -62,14 +46,10 @@
 
 
         <canvas id="ember-canvas"></canvas>
-	<script>
-		function clamp(value, min, max) {
-			return Math.min(Math.max(value, min), max);
-		}
-	</script>
-	<canvas id="bg"></canvas>
-	<script src="Script/ember_system.js"></script>
-	<script src="Script/Night-to-Day_Background.js"></script>
+		<canvas id="bg"></canvas>
 	</body>
 </html>
-
+	
+<script src="script/nav.js"></script>
+<script src="Script/ember_system.js"></script>
+<script src="Script/day_cycle.js"></script>
