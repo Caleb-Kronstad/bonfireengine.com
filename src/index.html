@@ -1,51 +1,42 @@
 <!DOCTYPE html>
 
+<head>
+	<meta charset="utf-8">
+	<title>Bonfire</title>
+	<meta name="author" content="Levi Diller">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="resources/bonfire-animation.gif">
+	<link rel="stylesheet" href="style/general.css">
+	<link rel="stylesheet" href="style/nav.css">
+</head>
+
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Bonfire</title>
-		<meta name="author" content="Levi Diller">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="resources/favicon_placehoder.png">
-		<link rel="stylesheet" href="style/general.css">
-	</head>
-	
-	
 	<body>
-		<header class="Navigation">
+
+		<header class="navigation">
 			<nav>
-				<button class="nav-btn" id="Home-btn"><b>Home</b></button>
-				<button class="nav-btn" id="Download-btn"><b>Download</b></button>
-				<button class="nav-btn" id="Showcase-btn"><b>Showcase</b></button>
-				<button class="nav-btn" id="Future-Plans-btn"><b>Future Plans</b></button>
-				<button class="nav-btn" id="Devlog-btn"><b>Devlog</b></button>
+				<button class="nav-btn" id="home-btn"><b>Home</b></button>
+				<button class="nav-btn" id="download-btn"><b>Download</b></button>
+				<button class="nav-btn" id="showcase-btn"><b>Showcase</b></button>
+				<button class="nav-btn" id="devlog-btn"><b>Devlog</b></button>
 			</nav>
 		</header>
 		
 		<script src="script/nav.js"></script>
 		
 		<main>
-			<h2>What is Bonfire?</h2> <br/>
-			<p>Bonfire is a ABCDEFGHIJKLMNOPQRSTUVWXYZ game engine that fdsklajfoidkhsjsajhlkjahfjhaskhdjkhkalhfdkhkalh and performs jhdfskaljfkljdkasjfklsajklajsklfajjeiowqryhfvbjkdas</p> <br/>
-			<h3>Key Highlights</h3> <br/>
-				<ul>
-					<li> it can do this </li>
-					<li> it can do that</li>
-					<li> it see into your future</li>
-					<li> it can see into your past</li>
-					<li> it can make another realm entirely</li>
-				</ul>
-				<br/>
+			<div class="title">
+				<h1>BONFIRE</h1>
+				<p>A 3D GRAPHICS ENGINE</p>
+			</div>
 		</main>
-		
-		<br><br>
-		
-        <footer class="bottem">
-            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
-        </footer>
-
 
         <canvas id="ember-canvas"></canvas>
+		
+        <footer class="bottom">
+            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
+        </footer>
+		
 		<canvas id="bg"></canvas>
 	</body>
 </html>

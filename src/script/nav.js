@@ -1,15 +1,12 @@
-document.getElementById("Home-btn").onclick = function() {
+document.getElementById("home-btn").onclick = function() {
     location.href = "index.html";
 };
-document.getElementById("Download-btn").onclick = function() {
+document.getElementById("download-btn").onclick = function() {
     location.href = "download.html";
 };
-document.getElementById("Showcase-btn").onclick = function() {
-    location.href = "showcase.html"
+document.getElementById("showcase-btn").onclick = function() {
+    location.href = "showcase.html";
 };
-document.getElementById("Future-Plans-btn").onclick = function() {
-    location.href = "future_plans.html"
-};
-document.getElementById("Devlog-btn").onclick = function() {
+document.getElementById("devlog-btn").onclick = function() {
     location.href = "devlog.html";
 };

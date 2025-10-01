@@ -1,241 +1,201 @@
-	@font-face {
-		
-		font-family: 'DarkSouls';
-		src: url('../Resources/OptimusPrinceps.ttf') format('truetype');
-		font-weight: normal;
-	}
-	
-	@font-face {
-		
-		font-family: 'EldenRing';
-		src: url('../Resources/OptimusPrincepsSemiBold.ttf') format('truetype');
-		font-weight: bold;
-	}
-	
-	html, body {
-	  height: 100%;
-	  margin: 0;
-	}
+@font-face {
+    
+    font-family: 'DarkSouls';
+    src: url('../Resources/OptimusPrinceps.ttf') format('truetype');
+    font-weight: normal;
+}
 
-	body {
-	  background: linear-gradient(to top, #2D0D01, #000000);
-	  color: #fff;
-	  font-family: Helvetica;
-	}
-	
-	#bg {
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
+@font-face {
+    
+    font-family: 'EldenRing';
+    src: url('../Resources/OptimusPrincepsSemiBold.ttf') format('truetype');
+    font-weight: bold;
+}
 
-      image-rendering: pixelated;
-    }
-	
-	.content {
-	  position: relative;
-	  z-index: 1;
-	  padding: 2rem;
-	}
-	
-	
-	header {
-		margin-top: 0rem;
-		padding: 0.8em 20em;
-		background-color: #2D0D01;
-		color: #fff;
-	
-	}
+html
+{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* background-color: #120401; */
+    scrollbar-gutter: stable;
+    height: 100%;
+    margin: 0;
+}
 
-    nav {
-        line-height: 1.5em;
-        font-size: 1.5vw;
-        text-align: center;
-    }
-	
-	nav > * {
-        text-wrap: nowrap;
-        padding: 1vh;
-    }
+body
+{
+    position: relative;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: Helvetica;
+    font-size: 1vw;
+    background: linear-gradient(to top, #2D0D01, #000000);
+    color: #fff;
+    min-height: 100vh; /* Ensure body is at least viewport height */
+    display: flex;
+    flex-direction: column;
+}
 
-	.nav-btn {
-        border-radius: 0.7vw;
-        background-color: #541801;
-        border: 0.5vw solid #2c1100;
-        color: #a93c20;
-		margin: 20 rem;
-        padding-top: 0.5vh;
-        padding-bottom: 0.5vh;
-        padding-left: 1vw;
-        padding-right: 1vw;
-    }
-	
-	.nav-btn:hover {
-        background-color: rgb(65, 19, 1);
-        transform: scale(1.1) perspective(1px);
-        color: #be481b;
-    }
-	
-	footer {
-		
-		margin-top: 20rem;
-		
-	}
-	
-	h1 {
-		font-size: 30px;
-	}
-	
-	h2 {
-		font-size: 30px;
-		
-	}
-	
-	h3 {
-		font-size: 30px;
-		
-	}
-	
-	ul {
-		font-size: 30px;
-		
-	}
-	
-	ol {
-		font-size: 30px;
-		
-	}
-	
-	li {
-		font-size: 30px;
-		
-	}
-	
-	p {
+main
+{
+    padding-top: 10vh;
+}
 
-		font-size: 30px;
-	}
-	
-	
-	#container {
-	   display: flex;
-	   border: 1px green solid;
-	   padding: 5px;
-	}
-	
-	#container > div {
-		
-		padding: 10px;
-		border: 1px blue solid;
-		
-	}
-	
-	#bonfire-animation
-    {
-        position: relative;
-        bottom: 0;
-		left: 63%;
-        transform: translateX(-100%);
-        z-index: 12;
-        max-width: 50vw;
-        max-height: 60vh;
+#bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    image-rendering: pixelated;
+}
+
+.title
+{
+    width: 100%;
+    font-size: 4vw;
+    text-align: center;
+    color: #802615;
+}
+
+.title h1
+{
+    position: relative;
+    z-index: 20;
+    font-size: 200%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.title p
+{
+    margin: 0.5vh;
+    font-size: 30%;
+    color: #802615;
+    font-family: monospace;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.navigation {
+    margin-top: 0;
+    background-color: #2D0D01;
+    color: #fff;
+
+}
+
+h1, h2, h3, ul, ol, li, p {
+    font-size: 30px;
+}
+
+
+#container {
+    display: flex;
+    border: 1px green solid;
+    padding: 5px;
+}
+
+#container > div {
+    
+    padding: 10px;
+    border: 1px blue solid;
+    
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+#bonfire-animation
+{
+    position: relative;
+    bottom: 0;
+    z-index: 12;
+    max-width: 50vw;
+    max-height: 60vh;
+}
+
+#ember-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 11;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
     }
 
-    #ember-canvas {
-        position: fixed;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        pointer-events: none;
-        z-index: 11;
-    }
-	
-	/* below is the size changes for different screen sizes such as phones, tablets, and computers */
-	
-		/* this is for a tablet */
-	 @media (max-width: 768px) {
-        html {
-            font-size: 3vw;
-        }
-
-        .title {
-            font-size: 12vw;
-            padding: 2vh 1vw;
-        }
-
-        nav {
-            font-size: 4vw;
-            padding: 1vh 0;
-        }
-
-        .nav-btn {
-            margin: 0.5vh;
-            padding: 2vh 3vw;
-            font-size: 4vw;
-            border-radius: 1vw;
-            border: 0.4vw solid #2c1100;
-            min-height: 44px;
-            min-width: 44px;
-        }
-
-        body {
-            margin: 2vw;
-            margin-top: 15vh;
-        }
-
-        .navigation {
-            padding: 2vh 1vw;
-        }
-
-        .title img {
-            max-width: 80vw;
-            max-height: 40vh;
-        }
+    main {
+        padding-top: 15vh;
     }
 
-		/* this is for a phone */
-    @media (max-width: 480px) {
-        .title {
-            font-size: 15vw;
-            margin-top: 5vh;
-        }
-
-        .nav-btn {
-            display: block;
-            width: 90%;
-            margin: 1vh auto;
-            padding: 3vh 2vw;
-            font-size: 5vw;
-        }
-
-        nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        body {
-            margin: 1vw;
-            margin-top: 25vh;
-        }
-
-        .navigation {
-            padding: 2vh 1vw;
-        }
+    .title {
+        font-size: 8vw;
     }
-		/* This is for a computer */
-    @media (min-width: 1200px) {
-        html {
-            font-size: 0.8vw;
-        }
 
-        .title {
-            font-size: 4vw;
-        }
-
-        nav {
-            font-size: 1.2vw;
-        }
+    .title h1 {
+        font-size: 150%;
     }
+
+    .title p {
+        font-size: 60%;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    h1, h2, h3, ul, ol, li, p {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #container {
+        flex-direction: column;
+        padding: 3px;
+    }
+
+    #container > div {
+        padding: 8px;
+        width: 100%;
+    }
+
+    #bonfire-animation {
+        max-width: 80vw;
+        max-height: 40vh;
+    }
+
+    footer {
+        padding: 0;
+    }
+}
+
+/* Really Small Devices */
+@media screen and (max-width: 278px) {
+    main {
+        padding-top: 30vh;
+    }
+}

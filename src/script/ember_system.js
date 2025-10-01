@@ -33,8 +33,11 @@ class EmberSystem {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.spawnX = this.canvas.width / 2;
-        this.spawnY = this.canvas.height - 100;
+        this.spawnY = this.canvas.height;
         this.spawnRadius = 50;
+        const totalHeight = document.documentElement.scrollHeight;
+        this.heightScale = 1000 / totalHeight; // Baseline: 1000px = scale of 1
+        console.log('Height scale:', this.heightScale);
     }
 
     createEmber() {
@@ -45,10 +48,10 @@ class EmberSystem {
             x: this.spawnX + Math.cos(angle) * radius,
             y: this.spawnY + Math.random() * 20,
             x_velocity: (Math.random() - 0.5) * 0.3,
-            y_velocity: clamp(-Math.random(), -0.5, -1),
+            y_velocity: clamp(-Math.random(), -0.5, -1) * this.heightScale * 2, // Scale velocity
             life: 1,
-            maxLife: Math.random() * 10,
-            size: Math.floor(Math.random() * 2) + 2,
+            maxLife: (Math.random() * 10), // Scale life
+            size: Math.floor(Math.random() * 2 + 2), // Scale size
             color: this.colors[Math.floor(Math.random() * this.colors.length)],
             flicker: Math.random() * 0.5 + 0.5
         };
@@ -56,7 +59,7 @@ class EmberSystem {
 
     update() {
         if (Math.random() < 0.02) { // 2% chance each frame
-            if (this.embers.length <= 10) {
+            if (this.embers.length <= 30) {
                 this.embers.push(this.createEmber());
             }
         }
@@ -65,15 +68,15 @@ class EmberSystem {
             const ember = this.embers[i];
 
             ember.x += ember.x_velocity;
-            ember.y += ember.y_velocity;
+            ember.y += ember.y_velocity / 2;
 
             ember.x_velocity += (Math.random() - 0.5) * 0.02;
-            ember.y_velocity += 0.0005;
+            ember.y_velocity += 0.0001;
 
             ember.life -= 0.005 / ember.maxLife;
             ember.flicker = Math.random() * 0.5 + 0.5;
 
-            if (ember.life <= 0 || ember.y < -10) {
+            if (ember.life <= 0) {
                 this.embers.splice(i, 1);
             }
         }
@@ -93,7 +96,7 @@ class EmberSystem {
             this.ctx.fillStyle = ember.color;
 
             const size = ember.size * this.pixelSize;
-            this.ctx.fillRect(ember.x, ember.y, size, size);
+            this.ctx.fillRect(ember.x, ember.y, size, size * this.heightScale);
         });
 
         this.ctx.globalAlpha = 1;
