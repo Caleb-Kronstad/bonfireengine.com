@@ -22,20 +22,97 @@
 		</header>
 		
 		<main>
-			<h2>Find out how to contact me at</h2>
-			<p><a>calebkronstad.com/contact</a></p>
-			<p>Email: caleb@calebkronstad.com</p>
-			
-			<h3>Monthly/weekly blog posts</h3>
-			
-			<h3>Development challenges and solutions</h3>
-			
-			<h3>New feature announcements</h3>
-			
-			<h3>Technical deep-dives</h3>
+			<!-- Feature Banner -->
+			<div class="feature-banner">
+				<h2>New Feature: Feature Name Here</h2>
+				<p class="date">October 1, 2025</p>
+				<p>
+					Feature description here
+				</p>
+			</div>
+
+			<!-- Blog Posts Section -->
+			<section class="blog-section">
+				<h2>Devlog</h2>
+
+				<!-- MOST RECENT BLOG POST -->
+				<div class="blog-post">
+					<div class="blog-post-header">
+						<div class="blog-post-title">
+							<h3>Post Title</h3>
+							<span class="blog-post-date">January 3, 2025</span>
+						</div>
+						<span class="blog-post-arrow">▼</span>
+					</div>
+					<div class="blog-post-content">
+						<p>Sentence summary</p>
+						
+						<h4>Section 1</h4>
+						<p>Description of problem</p>
+						
+						<h4>Section 2</h4>
+						<p>Description of solution</p>
+						
+						<h4>Section 3</h4>
+						<p>Description of results</p>
+					</div>
+				</div>
+
+				<!-- BLOG POST -->
+				<div class="blog-post">
+					<div class="blog-post-header">
+						<div class="blog-post-title">
+							<h3>Post Title</h3>
+							<span class="blog-post-date">January 2, 2025</span>
+						</div>
+						<span class="blog-post-arrow">▼</span>
+					</div>
+					<div class="blog-post-content">
+						<p>Sentence summary</p>
+						
+						<h4>Section 1</h4>
+						<p>Description of problem</p>
+						
+						<h4>Section 2</h4>
+						<p>Description of solution</p>
+						
+						<h4>Section 3</h4>
+						<p>Description of results</p>
+					</div>
+				</div>
+
+				<!-- BLOG POST -->
+				<div class="blog-post">
+					<div class="blog-post-header">
+						<div class="blog-post-title">
+							<h3>Post Title</h3>
+							<span class="blog-post-date">January 1, 2025</span>
+						</div>
+						<span class="blog-post-arrow">▼</span>
+					</div>
+					<div class="blog-post-content">
+						<p>Sentence summary</p>
+						
+						<h4>Section 1</h4>
+						<p>Description of problem</p>
+						
+						<h4>Section 2</h4>
+						<p>Description of solution</p>
+						
+						<h4>Section 3</h4>
+						<p>Description of results</p>
+					</div>
+				</div>
+			</section>
+
+			<div class="contact-section">
+				<h2>Get in Touch</h2>
+				<p>Have questions or feedback? Contact me at</p>
+				<p><a href="https://calebkronstad.com/contact" target="_blank">calebkronstad.com/contact</a></p>
+			</div>
 		</main>
 		
-		<footer class="bottem">
+		<footer class="bottom">
             <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
         </footer>
 
@@ -44,13 +121,8 @@
 		<canvas id="bg"></canvas>
 	</body>
 </html>
-
-<script>
-	function clamp(value, min, max) {
-		return Math.min(Math.max(value, min), max);
-	}
-</script>
 	
+<script src="script/devlog.js"></script>
 <script src="script/nav.js"></script>
 <script src="Script/ember_system.js"></script>
 <script src="Script/day_cycle.js"></script>

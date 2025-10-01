@@ -1,45 +1,42 @@
 @font-face {
-    
     font-family: 'DarkSouls';
     src: url('../Resources/OptimusPrinceps.ttf') format('truetype');
     font-weight: normal;
 }
 
 @font-face {
-    
     font-family: 'EldenRing';
     src: url('../Resources/OptimusPrincepsSemiBold.ttf') format('truetype');
     font-weight: bold;
 }
 
-html
-{
+html {
     overflow-x: hidden;
     overflow-y: scroll;
-    /* background-color: #120401; */
     scrollbar-gutter: stable;
     height: 100%;
     margin: 0;
 }
 
-body
-{
+body {
     position: relative;
     margin: 0;
     overflow-x: hidden;
-    overflow-y: hidden;
     font-family: Helvetica;
     font-size: 1vw;
     background: linear-gradient(to top, #2D0D01, #000000);
     color: #fff;
-    min-height: 100vh; /* Ensure body is at least viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-main
-{
+main {
     padding-top: 10vh;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    z-index: 15;
 }
 
 #bg {
@@ -50,85 +47,194 @@ main
     left: 0;
     z-index: -1;
     pointer-events: none;
-
     image-rendering: pixelated;
 }
 
-.title
-{
-    width: 100%;
-    font-size: 4vw;
-    text-align: center;
-    color: #802615;
-}
-
-.title h1
-{
-    position: relative;
-    z-index: 20;
-    font-size: 200%;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.title p
-{
-    margin: 0.5vh;
-    font-size: 30%;
-    color: #802615;
-    font-family: monospace;
-}
-
-.content {
-    position: relative;
-    z-index: 1;
-    padding: 2rem;
-}
-
-/* Diagram styling */
-.diagram-container {
-    overflow-x: auto;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
-}
-
-.diagram-container pre {
-    margin: 0;
-    font-size: 11px;
-    line-height: 1.2;
-    color: #d4d4d4;
-    white-space: pre;
-    overflow-x: visible;
-}
-
-h1, h2, h3, ul, ol, li, p {
-    font-size: 30px;
-}
-
-
-#container {
+/* Navigation */
+nav {
     display: flex;
-    border: 1px green solid;
-    padding: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+    line-height: 1.5vh;
+    font-size: 1.25vw;
+    text-align: center;
 }
 
-#container > div {
-    
-    padding: 10px;
-    border: 1px blue solid;
-    
+.navigation {
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    padding: 1vh 0;
+    background-color: #2d0d01;
+    z-index: 1000;
 }
 
+nav > * {
+    text-wrap: nowrap;
+    min-width: 50px;
+    min-height: 10px;
+    padding: 0.5vh 1vw;
+}
+
+.nav-btn {
+    border-radius: 0.2vw;
+    background-color: #541801;
+    border: 0.1vw solid #541801;
+    color: #a93c20;
+    margin: 0.25vw 0.25vw;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: rgb(65, 19, 1);
+    border: 0.1vw solid #541801;
+    transform: scale(1.1) perspective(1px);
+    color: #be481b;
+}
+
+/* Feature Banner */
+.feature-banner {
+    background-color: #541801;
+    border: 2px solid #a93c20;
+    border-radius: 5px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(128, 38, 21, 0.3);
+    position: relative;
+}
+
+.feature-banner h2 {
+    margin: 0 0 1rem 0;
+    color: #be5329;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.feature-banner p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.feature-banner .date {
+    color: #ffb380;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Blog Posts Section */
+.blog-section {
+    margin: 3rem 0;
+}
+
+.blog-section > h2 {
+    color: #802615;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.blog-post {
+    background-color: rgba(84, 24, 1, 0.3);
+    border: 1px solid #541801;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.blog-post:hover {
+    border-color: #a93c20;
+}
+
+.blog-post-header {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(84, 24, 1, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.blog-post-header:hover {
+    background-color: rgba(84, 24, 1, 0.7);
+}
+
+.blog-post-header.active {
+    background-color: rgba(128, 38, 21, 0.5);
+}
+
+.blog-post-title {
+    flex: 1;
+}
+
+.blog-post-title h3 {
+    margin: 0 0 0.5rem 0;
+    color: #a93c20;
+    font-size: 1.5rem;
+}
+
+.blog-post-date {
+    color: #ffb380;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.blog-post-arrow {
+    font-size: 1.5rem;
+    color: #a93c20;
+    transition: transform 0.3s ease;
+    margin-left: 1rem;
+}
+
+.blog-post-arrow.open {
+    transform: rotate(180deg);
+}
+
+.blog-post-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 1.5rem;
+}
+
+.blog-post-content.open {
+    max-height: 2000px;
+    padding: 1.5rem;
+}
+
+.blog-post-content h4 {
+    color: #be481b;
+    margin-top: 1.5rem;
+}
+
+.blog-post-content p {
+    line-height: 1.8;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.blog-post-content ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.blog-post-content li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+/* Footer */
 footer {
     display: flex;
     justify-content: center;
     margin-top: auto;
+    padding: 0;
 }
 
-#bonfire-animation
-{
+#bonfire-animation {
     position: relative;
     bottom: 0;
     z-index: 12;
@@ -146,6 +252,30 @@ footer {
     z-index: 11;
 }
 
+.contact-section {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: rgba(84, 24, 1, 0.2);
+    border-radius: 4px;
+}
+
+.contact-section h2 {
+    color: #a93c20;
+    margin-bottom: 1rem;
+}
+
+.contact-section a {
+    color: #be481b;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.contact-section a:hover {
+    color: #ffd700;
+}
+
 /* Mobile */
 @media screen and (max-width: 768px) {
     body {
@@ -156,61 +286,58 @@ footer {
         padding-top: 15vh;
     }
 
-    .title {
-        font-size: 8vw;
+    nav {
+        font-size: 16px;
+        gap: 0.5rem;
     }
 
-    .title h1 {
-        font-size: 150%;
+    .nav-btn {
+        min-width: 120px;
+        min-height: 44px;
+        font-size: 16px;
+        margin: 0.25rem;
+        border-radius: 0.5rem;
+        border-width: 2px;
     }
 
-    .title p {
-        font-size: 60%;
+    .feature-banner {
+        padding: 1.5rem;
     }
 
-    .diagram-container pre {
-        font-size: 9px;
+    .feature-banner h2 {
+        font-size: 1.5rem;
     }
 
-    .content {
+    .feature-banner p {
+        font-size: 1rem;
+    }
+
+    .blog-section > h2 {
+        font-size: 1.8rem;
+    }
+
+    .blog-post-header {
         padding: 1rem;
-    }
-
-    h1, h2, h3, ul, ol, li, p {
-        font-size: 18px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    #container {
         flex-direction: column;
-        padding: 3px;
+        align-items: flex-start;
     }
 
-    #container > div {
-        padding: 8px;
-        width: 100%;
+    .blog-post-title h3 {
+        font-size: 1.2rem;
+    }
+
+    .blog-post-arrow {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    .blog-post-content p {
+        font-size: 0.95rem;
     }
 
     #bonfire-animation {
         max-width: 80vw;
         max-height: 40vh;
-    }
-
-    footer {
-        padding: 0;
-    }
-}
-
-/* Really Small Devices */
-@media screen and (max-width: 278px) {
-    main {
-        padding-top: 30vh;
     }
 }

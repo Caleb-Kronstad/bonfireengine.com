@@ -22,30 +22,66 @@
 		</header>
 		
 		<main>
-			<h3>Here is a link to the github <a href="https://github.com/Caleb-Kronstad/Bonfire" target="_blank">repository<a/></h3>
+			<h3>Here is a link to the github <a href="https://github.com/Caleb-Kronstad/Bonfire" target="_blank">repository</a></h3>
 			
-			<h3>Build Requirements:</h3>
+			<h3>Build requirements</h3>
+			<h4>System Requirements</h4>
 			<ul>
-				<li>You need a computer</li>
-				<li>It needs to be Windows 64-bit (I will not apologize to MAC users)</li>
-				<li>Let it take over your system's environment.</li>
+				<li>OS: Windows 10/11 (x64 only) - Linux and MacOS support planned for later date</li>
+				<li>GPU: OpenGL 4.6 compatible graphics card - Can downgrade OpenGL version for compatibility on your device</li>
+				<li>RAM: 4GB minimum</li>
+				<li>Disk Space: ~500MB</li>
+			</ul>
+			<h4>Required Tools</h4>
+			<ul>
+				<li>Any C++ Compatibile IDE on Windows - JetBrains Rider or Visual Studio 2022 recommended</li>
+				<li>C++20 compiler (MSVC)</li>
+				<li>Windows SDK (latest)</li>
+				<li>Git for Windows</li>
+			</ul>
+			<h4>Dependencies (Included)</h4>
+			<ul>
+				<li>GLFW - Windowing and input</li>
+				<li>GLAD - OpenGL loader (4.6 Core)</li>
+				<li>ImGui - UI framework</li>
+				<li>ImGuizmo - 3D manipulation gizmos</li>
+				<li>GLM - Math library</li>
+				<li>Assimp - 3D model loading</li>
+				<li>stb_image - Image loading</li>
 			</ul>
 			
-			<h3>Here are some step-by-step instructions:</h3>
+			<h3>Build Instructions</h3>
 			<ol>
-				<li>Go to the github repository</li>
-				<li>Click "clone repository"</li>
-				<li>Let the wizard do the rest</li>
+				<li>
+					Clone the repository with submodules
+					<p>
+					git clone --recursive https://github.com/Caleb-Kronstad/Bonfire Bonfire<br>
+					cd Bonfire<br>
+					Note: The --recursive flag automatically downloads all dependencies (~200MB)
+					</p>
+				</li>
+				<li>
+					Run the setup script
+					<p>
+					cd Scripts<br>
+					Setup-Windows.bat<br>
+					Note: This runs Premake5 and generates Bonfire.sln in the root directory
+					</p>
+				</li>
 			</ol>
-			
-			<h3>Dependency Infomation</h3>
-			<p>
-				Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-			</p>
+
+			<h3>Creating Custom Projects</h3>
+			<ol>
+				<li>Copy Project/ folder and rename</li>
+				<li>Modify Source/ProjectControl.cpp to add custom layers</li>
+				<li>Inherit from Bonfire::Layer class</li>
+				<li>Update Build-Project.lua if adding new files</li>
+				<li>Re-run Scripts/Setup-Windows.bat</li>
+			</ol> 
 		</main>
 		
 		
-		<footer class="bottem">
+		<footer class="bottom">
             <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
         </footer>
 
@@ -53,12 +89,6 @@
 		<canvas id="bg"></canvas>
 	</body>
 </html>
-
-<script>
-	function clamp(value, min, max) {
-		return Math.min(Math.max(value, min), max);
-	}
-</script>
 	
 <script src="script/nav.js"></script>
 <script src="Script/ember_system.js"></script>
