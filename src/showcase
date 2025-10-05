@@ -18,115 +18,25 @@
 				<button class="nav-btn" id="download-btn"><b>Download</b></button>
 				<button class="nav-btn" id="showcase-btn"><b>Showcase</b></button>
 				<button class="nav-btn" id="devlog-btn"><b>Devlog</b></button>
-
-                            <div class="dropdown">
-					<button class="drop-btn"><b>Background ▼</b></button>
-					<div class="dropdown-content">
-						<button id="Midnight-btn"><b>Midnight</b></button>
-						<button id="Morning-btn"><b>Morning</b></button>
-						<button id="Twilight-btn"><b>Twilight</b></button>
-						<button id="Cycle-btn"><b>Day-Night Cycle</b></button>
-					</div>
-				</div>
 			</nav>
 		</header>
 		
 		<main>
-			<div class="architecture-section">
-                            <div class="architecture-text">
-                                   <h3>Core Engine Architecture</h3>
-                                   <p>
-                                          Bonfire uses a layer-based architecture where the Project class serves as the main entry point
-                                          and orchestrates all engine systems. Layers inherit a base class with lifecycle hooks
-                                          (OnAttach, OnDetach, OnUpdate, OnInterfaceUpdate, OnInput) that execute each frame.
-                                          The engine employs a singleton pattern for global access to core systems like the Renderer and Interface.
-                                          The main loop manages delta timing, processes input through GLFW callbacks, updates all active layers
-                                          sequentially, then renders the frame before swapping buffers. Projects extend the base Project class
-                                          and push custom layers to implement gameplay logic.
-                                   </p>
+			<div id="container">
+				<div> 
+					<h3>Core Engine Architecture</h3>
 
-                                   <br><br>
+					<p>
+						Bonfire uses a layer-based architecture where the Project class serves as the main entry point and orchestrates
+  all engine systems. Layers inherit a base class with lifecycle hooks (OnAttach, OnDetach, OnUpdate,
+  OnInterfaceUpdate, OnInput) that execute each frame. The engine employs a singleton pattern for global access to
+  core systems like the Renderer and Interface. The main loop manages delta timing, processes input through GLFW
+  callbacks, updates all active layers sequentially, then renders the frame before swapping buffers. Projects extend
+   the base Project class and push custom layers to implement gameplay logic.
+					</p>
 
-                                   <div>
-                                          <h3>Rendering</h3>
-                                          <p>
-                                                 The rendering system targets OpenGL 4.6 core profile with support for MSAA anti-aliasing, depth testing, and face
-                                                 culling. Shaders are managed through a class that handles compilation, linking, and uniform setting. The mesh
-                                                 system stores vertices with position, normal, and UV coordinates in vertex buffer objects. Models are loaded via
-                                                 Assimp and decomposed into meshes with associated textures. The camera supports both perspective and orthographic
-                                                 projections with WASD movement, mouse look when clicking, and adjustable FOV via scroll. Each frame, entities are
-                                                 drawn by setting shader uniforms for model, view, and projection matrices before issuing draw calls.
-                                          </p>
-
-                                          <img src="resources/core_architecture_showcase.gif" width="550" height="325">
-                                   </div>
-
-                                   <br><br>
-
-                                   <div> 
-                                          <h3>Input System</h3>
-                                          <p>
-                                                 The input system uses an event-based architecture with polymorphic input classes inheriting from a base Input
-                                                 class. Specific input types (KeyPressed, KeyReleased, MouseMoved, MouseScrolled, MouseButtonPressed,
-                                                 MouseButtonReleased) each have dedicated classes with relevant data accessors. GLFW callbacks are registered in
-                                                 the Project class, which creates input event objects and propagates them through the layer stack. Each layer's
-                                                 OnInput method receives events and can set the Handled flag to stop propagation. This allows UI layers to consume
-                                                 inputs before they reach gameplay layers, preventing clicks from passing through interface elements to the game
-                                                 world.
-                                          </p>
-                                   </div>
-
-                                   <br><br>
-
-                                   <div> 
-                                          <h3>Development Tools</h3>
-                                          <p>
-                                                 Bonfire includes an integrated editor built with ImGui, featuring a hierarchical entity view, property inspector,
-                                                 and project settings panel. The inspector uses ImGuizmo for interactive 3D transformation gizmos directly in the
-                                                 viewport. The hierarchy window displays all entities and allows selection for editing. The details panel provides
-                                                 drag controls for modifying entity transforms with adjustable step sizes. The Premake-based build system
-                                                 simplifies project configuration with Lua scripts that define include paths, dependencies, and compiler settings.
-                                                 Windows-specific utilities leverage the Win32 API for file dialogs and system integration.
-                                          </p>
-                                   </div>
-
-                                   <br><br>
-
-                                   <div> 
-                                          <h3>Technical Features</h3>
-                                          <p>
-                                                 The engine implements an Entity-Component System using template metaprogramming for type-safe component
-                                                 management. Components are stored in a fixed-size array indexed by type enum, providing cache-friendly access
-                                                 patterns. Each entity can have Transform, Model, and Texture components added or removed at runtime using
-                                                 templated AddComponent<T>() methods. The engine uses precompiled headers (bonfire_pch.hpp) to accelerate
-                                                 compilation times. A custom logging system provides color-coded console output for Info, Warning, and Error
-                                                 messages. Input events propagate through the layer stack with a handled flag that allows layers to consume events
-                                                 and prevent further propagation.
-                                          </p>
-                                          
-                                          <img src="resources/techincal_features_showcase.gif" width="550" height="325">
-
-                                   </div>
-
-                                   <br><br>
-
-                                   <div> 
-                                          <h3>Dependencies</h3>
-                                          <p>
-                                                 Bonfire integrates several industry-standard libraries: GLFW handles cross-platform windowing and input, while
-                                                 GLAD manages OpenGL function loading. ImGui and ImGuizmo provide the editor interface and 3D manipulation tools.
-                                                 GLM powers all vector and matrix mathematics. Assimp loads 3D models from various formats, and stb_image handles
-                                                 texture loading. The build system relies on Premake5 with Lua scripts for generating Visual Studio solutions. All
-                                                 dependencies are included as git submodules in the External directory, with custom build scripts that integrate
-                                                 them seamlessly into the engine's compilation pipeline.
-                                          </p>
-                                   </div>
-
-                                   
-                            </div>
-
-                            <div class="diagram-container">
-                                   <pre>
+					<div class="diagram-container">
+						<pre>
   ┌─────────────────────────────────────────────────────────────────┐
   │               BONFIRE ENGINE ARCHITECTURE DIAGRAM               │
   │                                                                 │
@@ -265,11 +175,72 @@
     ┌────────────────▼──────────────┐
     │  glfwTerminate()              │  Shutdown
     └───────────────────────────────┘
-                                   </pre>
-                            </div>
-                     </div>
-				
-				
+</pre>
+					</div>
+				</div>
+				<div> 
+					<h3>Rendering</h3>
+					<p>
+						The rendering system targets OpenGL 4.6 core profile with support for MSAA anti-aliasing, depth testing, and face
+  culling. Shaders are managed through a class that handles compilation, linking, and uniform setting. The mesh
+  system stores vertices with position, normal, and UV coordinates in vertex buffer objects. Models are loaded via
+  Assimp and decomposed into meshes with associated textures. The camera supports both perspective and orthographic
+  projections with WASD movement, mouse look when clicking, and adjustable FOV via scroll. Each frame, entities are
+  drawn by setting shader uniforms for model, view, and projection matrices before issuing draw calls.
+					</p>
+
+					<img src="resources/core_architecture_showcase.gif">
+				</div>
+				<div> 
+					<h3>Input System</h3>
+					<p>
+						The input system uses an event-based architecture with polymorphic input classes inheriting from a base Input
+  class. Specific input types (KeyPressed, KeyReleased, MouseMoved, MouseScrolled, MouseButtonPressed,
+  MouseButtonReleased) each have dedicated classes with relevant data accessors. GLFW callbacks are registered in
+  the Project class, which creates input event objects and propagates them through the layer stack. Each layer's
+  OnInput method receives events and can set the Handled flag to stop propagation. This allows UI layers to consume
+  inputs before they reach gameplay layers, preventing clicks from passing through interface elements to the game
+  world.
+					</p>
+				</div>
+				<div> 
+					<h3>Development Tools</h3>
+					<p>
+						Bonfire includes an integrated editor built with ImGui, featuring a hierarchical entity view, property inspector,
+  and project settings panel. The inspector uses ImGuizmo for interactive 3D transformation gizmos directly in the
+  viewport. The hierarchy window displays all entities and allows selection for editing. The details panel provides
+  drag controls for modifying entity transforms with adjustable step sizes. The Premake-based build system
+  simplifies project configuration with Lua scripts that define include paths, dependencies, and compiler settings.
+  Windows-specific utilities leverage the Win32 API for file dialogs and system integration.
+					</p>
+				</div>
+				<div> 
+					<h3>Technical Features</h3>
+					<p>
+						The engine implements an Entity-Component System using template metaprogramming for type-safe component
+  management. Components are stored in a fixed-size array indexed by type enum, providing cache-friendly access
+  patterns. Each entity can have Transform, Model, and Texture components added or removed at runtime using
+  templated AddComponent<T>() methods. The engine uses precompiled headers (bonfire_pch.hpp) to accelerate
+  compilation times. A custom logging system provides color-coded console output for Info, Warning, and Error
+  messages. Input events propagate through the layer stack with a handled flag that allows layers to consume events
+  and prevent further propagation.
+					</p>
+					
+					<img src="resources/techincal_features_showcase.gif">
+
+				</div>
+				<div> 
+					<h3>Dependencies</h3>
+					<p>
+ 						Bonfire integrates several industry-standard libraries: GLFW handles cross-platform windowing and input, while
+  GLAD manages OpenGL function loading. ImGui and ImGuizmo provide the editor interface and 3D manipulation tools.
+  GLM powers all vector and matrix mathematics. Assimp loads 3D models from various formats, and stb_image handles
+  texture loading. The build system relies on Premake5 with Lua scripts for generating Visual Studio solutions. All
+  dependencies are included as git submodules in the External directory, with custom build scripts that integrate
+  them seamlessly into the engine's compilation pipeline.
+					</p>
+				</div>
+			</div>
 		</main>
 		
 		<footer class="bottom">

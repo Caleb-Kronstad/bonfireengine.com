@@ -35,7 +35,7 @@ function parseRGB(rgb) {
 // Length of one full cycle in milliseconds (60s = 1 day/night cycle here).
 const duration = 60000;
 
-// Key gradient "checkpoints" (top + bottom color).
+// Key gradient checkpoints (top + bottom color).
 // Each pair represents a phase of the sky.
 const gradients = [
   ["rgb(45, 13, 1)", "rgb(0, 0, 0)"],           // midnight
@@ -45,23 +45,49 @@ const gradients = [
   ["rgb(45, 13, 1)", "rgb(0, 0, 0)"]            // midnight again
 ];
 
+// === Mode Control ===
+// backgroundMode = "cycle" → normal animation
+// backgroundMode = "midnight" | "morning" | "twilight"  are fixed gradients
+let backgroundMode = "cycle";
+
 // === Core Animation Loop ===
 function animate() {
-  const now = Date.now();
-  const time = (now % duration) / duration; // normalized cycle time [0,1)
+  let blended1, blended2;
 
-  // Step size between gradient checkpoints (e.g., midnight→sunrise).
-  const step = 1 / (gradients.length - 1);
-  const index = Math.floor(time / step);   // which checkpoint we’re on
-  const t = (time - index * step) / step;  // % progress to next checkpoint
+  if (backgroundMode === "cycle") {
+    // Normal animated gradient
+    const now = Date.now();
+    const time = (now % duration) / duration; // normalized cycle time [0,1)
 
-  // Get the current + next gradient colors.
-  const [c1Start, c2Start] = gradients[index];
-  const [c1End, c2End] = gradients[index + 1];
+    // Step size between gradient checkpoints (e.g., midnight→sunrise).
+    const step = 1 / (gradients.length - 1);
+    const index = Math.floor(time / step);   // which checkpoint we’re on
+    const t = (time - index * step) / step;  // % progress to next checkpoint
 
-  // Interpolate both top and bottom colors.
-  const blended1 = blendRGB(parseRGB(c1Start), parseRGB(c1End), t);
-  const blended2 = blendRGB(parseRGB(c2Start), parseRGB(c2End), t);
+    // Get the current + next gradient colors.
+    const [c1Start, c2Start] = gradients[index];
+    const [c1End, c2End] = gradients[index + 1];
+
+    // Interpolate both top and bottom colors.
+    blended1 = blendRGB(parseRGB(c1Start), parseRGB(c1End), t);
+    blended2 = blendRGB(parseRGB(c2Start), parseRGB(c2End), t);
+  } else {
+    // Fixed background modes
+    switch (backgroundMode) {
+      case "midnight":
+        blended1 = parseRGB("rgb(45, 13, 1)");
+        blended2 = parseRGB("rgb(0, 0, 0)");
+        break;
+      case "morning":
+        blended1 = parseRGB("rgb(255, 204, 102)");
+        blended2 = parseRGB("rgb(135, 206, 235)");
+        break;
+      case "twilight":
+        blended1 = parseRGB("rgb(255, 153, 102)");
+        blended2 = parseRGB("rgb(51, 0, 102)");
+        break;
+    }
+  }
 
   // Paint vertical gradient on the low-res canvas.
   // Then the browser scales it up to screen size → chunky pixel look.
@@ -86,3 +112,15 @@ function animate() {
 
 // Start animation.
 animate();
+
+// === Button Event Hooks ===
+// Attach to dropdown buttons to switch modes manually.
+function setBackgroundMode(mode) {
+  console.log("Switching background to:", mode);
+  backgroundMode = mode;
+}
+
+document.getElementById("Midnight-btn").addEventListener("click", () => setBackgroundMode("midnight"));
+document.getElementById("Morning-btn").addEventListener("click", () => setBackgroundMode("morning"));
+document.getElementById("Twilight-btn").addEventListener("click", () => setBackgroundMode("twilight"));
+document.getElementById("Cycle-btn").addEventListener("click", () => setBackgroundMode("cycle"));

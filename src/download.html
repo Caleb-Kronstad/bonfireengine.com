@@ -18,66 +18,108 @@
 				<button class="nav-btn" id="download-btn"><b>Download</b></button>
 				<button class="nav-btn" id="showcase-btn"><b>Showcase</b></button>
 				<button class="nav-btn" id="devlog-btn"><b>Devlog</b></button>
+
+				<div class="dropdown">
+					<button class="drop-btn"><b>Background ▼</b></button>
+					<div class="dropdown-content">
+						<button id="Midnight-btn"><b>Midnight</b></button>
+						<button id="Morning-btn"><b>Morning</b></button>
+						<button id="Twilight-btn"><b>Twilight</b></button>
+						<button id="Cycle-btn"><b>Day-Night Cycle</b></button>
+					</div>
+				</div>
 			</nav>
 		</header>
 		
 		<main>
-			<h3>Here is a link to the github <a href="https://github.com/Caleb-Kronstad/Bonfire" target="_blank">repository</a></h3>
-			
-			<h3>Build requirements</h3>
-			<h4>System Requirements</h4>
-			<ul>
-				<li>OS: Windows 10/11 (x64 only) - Linux and MacOS support planned for later date</li>
-				<li>GPU: OpenGL 4.6 compatible graphics card - Can downgrade OpenGL version for compatibility on your device</li>
-				<li>RAM: 4GB minimum</li>
-				<li>Disk Space: ~500MB</li>
-			</ul>
-			<h4>Required Tools</h4>
-			<ul>
-				<li>Any C++ Compatibile IDE on Windows - JetBrains Rider or Visual Studio 2022 recommended</li>
-				<li>C++20 compiler (MSVC)</li>
-				<li>Windows SDK (latest)</li>
-				<li>Git for Windows</li>
-			</ul>
-			<h4>Dependencies (Included)</h4>
-			<ul>
-				<li>GLFW - Windowing and input</li>
-				<li>GLAD - OpenGL loader (4.6 Core)</li>
-				<li>ImGui - UI framework</li>
-				<li>ImGuizmo - 3D manipulation gizmos</li>
-				<li>GLM - Math library</li>
-				<li>Assimp - 3D model loading</li>
-				<li>stb_image - Image loading</li>
-			</ul>
-			
-			<h3>Build Instructions</h3>
-			<ol>
-				<li>
-					Clone the repository with submodules
-					<p>
-					git clone --recursive https://github.com/Caleb-Kronstad/Bonfire Bonfire<br>
-					cd Bonfire<br>
-					Note: The --recursive flag automatically downloads all dependencies (~200MB)
-					</p>
-				</li>
-				<li>
-					Run the setup script
-					<p>
-					cd Scripts<br>
-					Setup-Windows.bat<br>
-					Note: This runs Premake5 and generates Bonfire.sln in the root directory
-					</p>
-				</li>
-			</ol>
+			<button style="padding: 1em 3em;
+						   background-color: #802615;
+						   color: white;
+						   font-size: 20px;
+						   font-family: 'DarkSouls';
+						   border: none;
+						   border-radius: 10px;
+						   cursor: pointer;"
+						   id="Github-btn"><b>Github Repository</b></button>
 
-			<h3>Creating Custom Projects</h3>
-			<ol>
-				<li>Copy Project/ folder and rename</li>
-				<li>Modify Source/ProjectControl.cpp to add custom layers</li>
-				<li>Inherit from Bonfire::Layer class</li>
-				<li>Update Build-Project.lua if adding new files</li>
-				<li>Re-run Scripts/Setup-Windows.bat</li>
-			</ol> 
+			<br><br><br>
+			
+			<div style="background-color: rgb(68, 65, 65, 0.3); 
+						padding: 1em 1em 2em 2em;
+						border-radius: 0.2em;
+						box-shadow: 0 0 30px rgba(195, 185, 183, 0.3);">
+				<h3>Build requirements</h3>
+				<hr>
+				<h4>System Requirements</h4>
+				<ul>
+					<li>OS: Windows 10/11 (x64 only) - Linux and MacOS support planned for later date</li>
+					<li>GPU: OpenGL 4.6 compatible graphics card - Can downgrade OpenGL version for compatibility on your device</li>
+					<li>RAM: 4GB minimum</li>
+					<li>Disk Space: ~500MB</li>
+				</ul>
+				<h4>Required Tools</h4>
+				<ul>
+					<li>Any C++ Compatibile IDE on Windows - JetBrains Rider or Visual Studio 2022 recommended</li>
+					<li>C++20 compiler (MSVC)</li>
+					<li>Windows SDK (latest)</li>
+					<li>Git for Windows</li>
+				</ul>
+				<h4>Dependencies (Included)</h4>
+				<ul>
+					<li>GLFW - Windowing and input</li>
+					<li>GLAD - OpenGL loader (4.6 Core)</li>
+					<li>ImGui - UI framework</li>
+					<li>ImGuizmo - 3D manipulation gizmos</li>
+					<li>GLM - Math library</li>
+					<li>Assimp - 3D model loading</li>
+					<li>stb_image - Image loading</li>
+				</ul>
+			</div>	
+
+			<br>
+			
+			<div style="background-color: rgb(68, 65, 65, 0.3); 
+						padding: 1em 1em 2em 2em;
+						border-radius: 0.2em;
+						box-shadow: 0 0 30px rgba(195, 185, 183, 0.3);">
+				<h3 >Build Instructions</h3>
+				<hr>
+				<ol>
+					<li>
+						Clone the repository with submodules
+						<p>
+						git clone --recursive https://github.com/Caleb-Kronstad/Bonfire Bonfire<br>
+						cd Bonfire<br>
+						Note: The --recursive flag automatically downloads all dependencies (~200MB)
+						</p>
+					</li>
+					<li>
+						Run the setup script
+						<p>
+						cd Scripts<br>
+						Setup-Windows.bat<br>
+						Note: This runs Premake5 and generates Bonfire.sln in the root directory
+						</p>
+					</li>
+				</ol>
+			</div>
+			
+			<br>
+
+			<div style="background-color: rgb(68, 65, 65, 0.3); 
+						padding: 1em 1em 2em 2em;
+						border-radius: 0.2em;
+						box-shadow: 0 0 30px rgba(195, 185, 183, 0.3);">
+				<h3>Creating Custom Projects</h3>
+				<hr>
+				<ol>
+					<li>Copy Project/ folder and rename</li>
+					<li>Modify Source/ProjectControl.cpp to add custom layers</li>
+					<li>Inherit from Bonfire::Layer class</li>
+					<li>Update Build-Project.lua if adding new files</li>
+					<li>Re-run Scripts/Setup-Windows.bat</li>
+				</ol>
+			</div>
 		</main>
 		
 		

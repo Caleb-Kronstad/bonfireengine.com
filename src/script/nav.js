@@ -10,3 +10,9 @@ document.getElementById("showcase-btn").onclick = function() {
 document.getElementById("devlog-btn").onclick = function() {
     location.href = "devlog.html";
 };
+
+
+// below is a the js for the download button as well
+document.getElementById("Github-btn").onclick = function() {
+    location.href = "https://github.com/Caleb-Kronstad/Bonfire";
+};

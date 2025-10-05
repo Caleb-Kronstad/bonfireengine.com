@@ -18,6 +18,25 @@ html {
     margin: 0;
 }
 
+h3 {
+
+    font-size: 30px;
+    font-family: 'DarkSouls';
+
+}
+
+h4 {
+
+    font-size: 20px;
+    font-family: 'Eldenring';
+
+}
+
+p {
+    font-size: 14px;
+    font-style: helvetica;
+}
+
 body {
     position: relative;
     margin: 0;
@@ -52,45 +71,56 @@ main {
 
 /* Navigation */
 nav {
-    display: flex;
+	display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    line-height: 1.5vh;
     font-size: 1.25vw;
     text-align: center;
-}
-
-.navigation {
     width: 100%;
-    left: 0;
-    top: 0;
-    position: fixed;
-    padding: 1vh 0;
-    background-color: #2d0d01;
-    z-index: 1000;
 }
 
-nav > * {
-    text-wrap: nowrap;
-    min-width: 50px;
-    min-height: 10px;
-    padding: 0.5vh 1vw;
+.dropdown {
+    position: absolute;
+    left: 87%;
+    display: inline-block; 
 }
 
-.nav-btn {
-    border-radius: 0.2vw;
-    background-color: #541801;
-    border: 0.1vw solid #541801;
-    color: #a93c20;
-    margin: 0.25vw 0.25vw;
-    cursor: pointer;
+.drop-btn {
+  border-radius: 0.2vw;
+  background-color: #541801;
+  color: #a93c20;
+  padding: 5px 7px;
+  font-size: 14px;
+  border: 0.1vw solid #541801;
+  cursor: pointer;
 }
 
-.nav-btn:hover {
-    background-color: rgb(65, 19, 1);
-    border: 0.1vw solid #541801;
-    transform: scale(1.1) perspective(1px);
-    color: #be481b;
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background-color: #541801;
+  min-width: 20px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  background: black;
+  color: white;
+  padding: 10px 13px;
+  text-align: center;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #541700;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
 }
 
 /* Feature Banner */
@@ -226,6 +256,49 @@ nav > * {
     line-height: 1.6;
 }
 
+/* Core Architecture and Diagram Layout */
+.architecture-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.architecture-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.diagram-container {
+    flex: 1;
+    max-width: 50%;
+    background-color: rgba(84, 24, 1, 0.3);
+    border: 1px solid #541801;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    box-shadow: 0 0 15px rgba(128, 38, 21, 0.3);
+}
+
+.diagram-container pre {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #ffb380;
+    white-space: pre;
+}
+
+@media screen and (max-width: 900px) {
+    .architecture-section {
+        flex-direction: column;
+    }
+
+    .diagram-container {
+        max-width: 100%;
+    }
+}
+
 /* Footer */
 footer {
     display: flex;
@@ -340,4 +413,5 @@ footer {
         max-width: 80vw;
         max-height: 40vh;
     }
+
 }
