@@ -120,6 +120,10 @@ function setBackgroundMode(mode) {
   backgroundMode = mode;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    setBackgroundMode("midnight");
+});
+
 document.getElementById("Midnight-btn").addEventListener("click", () => setBackgroundMode("midnight"));
 document.getElementById("Morning-btn").addEventListener("click", () => setBackgroundMode("morning"));
 document.getElementById("Twilight-btn").addEventListener("click", () => setBackgroundMode("twilight"));
