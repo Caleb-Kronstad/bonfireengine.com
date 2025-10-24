@@ -12,7 +12,6 @@ document.getElementById("devlog-btn").onclick = function() {
 };
 
 
-// below is a the js for the download button as well
 document.getElementById("Github-btn").onclick = function() {
     location.href = "https://github.com/Caleb-Kronstad/Bonfire";
 };

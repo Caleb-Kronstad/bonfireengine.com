@@ -49,22 +49,76 @@
 				<div class="blog-post">
 					<div class="blog-post-header">
 						<div class="blog-post-title">
-							<h3>Post Title</h3>
-							<span class="blog-post-date">January 3, 2025</span>
+							<h3>Migration from OOP to DOD</h3>
+							<span class="blog-post-date">October 10, 2025</span>
 						</div>
 						<span class="blog-post-arrow">▼</span>
 					</div>
 					<div class="blog-post-content">
-						<p>Sentence summary</p>
+						<p>Bonfire's entity system has been restructured from an object-oriented component architecture to a data-oriented design using a parameter reference system, improving organization, performance, and data access patterns.</p>
 						
-						<h4>Section 1</h4>
-						<p>Description of problem</p>
+						<h4>The Component System Problem</h4>
+						<p>The original entity system used an object-oriented approach where each entity stored an array of component pointers (std::array<std::shared_ptr<Component>, COMPONENT_TYPE::COUNT>). Components like Transform, Model, and Textures were separate objects that entities would query and manage individually.</p>
+							<p>This approach had several issues:</p>
+							<ul>
+								<li>Memory fragmentation: Components were scattered across memory as individual heap allocations</li>
+								<li>Cache inefficiency: Accessing entity data required pointer chasing through multiple allocations</li>
+								<li>Rigid structure: The fixed-size array meant compile-time limits on component types</li>
+								<li>Awkward data access: Getting a component required template calls like GetComponent<Transform>()</li>
+							</ul>
+					
 						
-						<h4>Section 2</h4>
-						<p>Description of solution</p>
+						<h4>Data-Oriented Redesign</h4>
+						<p>The new system uses a data-oriented approach with several key changes:</p>
+							<p>Entity structure: </p>
+							<p>Entities now directly store their core transform data (position, rotation, scale) and use a parameter reference system for external resources:</p>
+
+							<p>
+								struct Entity {
+									std::string name;
+									glm::vec3 position, rotation, scale;
+									std::unordered_map<PARAM_TYPE, ParamReference> params;
+								};
+							</p>
+
+							<p>Param database: Instead of components, a centralized ParamDatabase manages resources through ID references:</p>
+							<ul>
+								<li>Model params (mesh data, paths, multipliers)</li>
+								<li>Texture params (paths, types, flip settings)</li>
+								<li>AI params (future implementation)</li>
+							</ul>
+
+							<p>Separation of concerns: Entity data is now organized by usage pattern:</p>
+							<ul>
+								<li>Frequently accessed transform data lives directly in the entity</li>
+								<li>Large resources (models, textures) are referenced by ID and cached in hash maps</li>
+								<li>Entity collections use std::vector<EntityID> and std::unordered_map<EntityID, EntityData> for efficient iteration</li>
+							</ul>
 						
-						<h4>Section 3</h4>
-						<p>Description of results</p>
+						<h4>Results and Trade-offs</h4>
+						<p>The migration is still in progress but shows promising improvements:</p>
+							<p>Performance benefits:</p>
+							<ul>
+								<li>Transform data is now contiguous in memory for better cache utilization</li>
+								<li>Resource lookups are direct hash map accesses rather than vtable lookups</li>
+								<li>Batch processing entities is more straightforward</li>
+							</ul>
+
+							<p>Code simplification:</p>
+							<ul>
+								<li>No more complex component lifetime management</li>
+								<li>Clearer separation between entity state and shared resources</li>
+								<li>Scene serialization became simpler with flat data structures</li>
+							</ul>
+
+							<p>Current challenges:</p>
+							<ul>
+								<li>System is temporarily non-functional as noted in commit "major changes, still isn't functional for the moment"</li>
+								<li>Refactoring rendering and scene systems to work with new architecture</li>
+								<li>Learning curve for the team in thinking data-oriented vs object-oriented</li>
+							</ul>
+
+							<p>The param system also integrates better with the new scene loading/saving functionality, making it easier to serialize entity data to JSON and manage resource references consistently across the engine.</p>
 					</div>
 				</div>
 

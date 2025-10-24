@@ -43,7 +43,6 @@ body {
     overflow-x: hidden;
     font-family: Helvetica;
     font-size: 1vw;
-    background: linear-gradient(to top, #2D0D01, #000000);
     color: #fff;
     min-height: 100vh;
     display: flex;
