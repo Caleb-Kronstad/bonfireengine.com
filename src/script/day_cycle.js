@@ -156,7 +156,7 @@ let transitionStart = 0;
 let transitionDuration = 2000;
 let transitionFrom = null;
 let transitionTo = null;
-let nextMode = "cycle";                                          // target mode to switch to after transition
+let nextMode = "midnight";                                          // target mode to switch to after transition
 
 function transitionToMode(mode) {
   if (transitionActive) return;
@@ -182,7 +182,7 @@ function setBackgroundMode(mode) {
 // ======================== initial page background mode and the button hookups ==================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  backgroundMode = "cycle";
+  backgroundMode = "midnight";
 
   document.getElementById("Midnight-btn").addEventListener("click", () => transitionToMode("midnight"));
   document.getElementById("Morning-btn").addEventListener("click", () => transitionToMode("morning"));

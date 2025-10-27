@@ -1,137 +1,117 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Bonfire - Download </title>
-		<meta name="author" content="Levi Diller">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="resources/bonfire-animation.gif">
-		<link rel="stylesheet" href="style/general.css">
-    	<link rel="stylesheet" href="style/nav.css">
-	</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Bonfire - Download </title>
+        <meta name="author" content="Levi Diller">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="resources/bonfire-animation.gif">
+        <link rel="stylesheet" href="style/general.css">
+        <link rel="stylesheet" href="style/nav.css">
+    </head>
 
-	<body>
-		<header class="navigation">
-			<nav>
-				<button class="nav-btn" id="home-btn"><b>Home</b></button>
-				<button class="nav-btn" id="download-btn"><b>Download</b></button>
-				<button class="nav-btn" id="showcase-btn"><b>Showcase</b></button>
-				<button class="nav-btn" id="devlog-btn"><b>Devlog</b></button>
+    <body>
+        <header class="navigation">
+            <nav>
+				<button class="nav-btn" id="home-btn"><b>HOME</b></button>
+				<button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
+				<button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
+				<button class="nav-btn" id="devlog-btn"><b>DEVLOG</b></button>
 
-				<div class="dropdown">
-					<button class="drop-btn"><b>Background ▼</b></button>
-					<div class="dropdown-content">
-						<button id="Midnight-btn"><b>Midnight</b></button>
-						<button id="Morning-btn"><b>Morning</b></button>
-						<button id="Twilight-btn"><b>Twilight</b></button>
-						<button id="Cycle-btn"><b>Day-Night Cycle</b></button>
-					</div>
-				</div>
-			</nav>
-		</header>
-		
-		<main>
-			<button style="padding: 1em 3em;
-						   background-color: #802615;
-						   color: white;
-						   font-size: 20px;
-						   font-family: 'DarkSouls';
-						   border: none;
-						   border-radius: 10px;
-						   cursor: pointer;"
-						   id="Github-btn"><b>Github Repository</b></button>
+                <div class="dropdown">
+                    <button class="drop-btn"><b>Background ▼</b></button>
+                    <div class="dropdown-content">
+                        <button id="Midnight-btn"><b>Midnight</b></button>
+                        <button id="Morning-btn"><b>Morning</b></button>
+                        <button id="Twilight-btn"><b>Twilight</b></button>
+                        <button id="Cycle-btn"><b>Day-Night Cycle</b></button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="download-hero">
+                <button class="github-button" id="Github-btn">
+                    <span class="button-text">GitHub Repository</span>
+                </button>
+            </div>
 
-			<br><br><br>
-			
-			<div style="background-color: rgb(68, 65, 65, 0.3); 
-						padding: 1em 1em 2em 2em;
-						border-radius: 0.2em;
-						box-shadow: 0 0 30px rgba(195, 185, 183, 0.3);">
-				<h3>Build requirements</h3>
-				<hr>
-				<h4>System Requirements</h4>
-				<ul>
-					<li>OS: Windows 10/11 (x64 only) - Linux and MacOS support planned for later date</li>
-					<li>GPU: OpenGL 4.6 compatible graphics card - Can downgrade OpenGL version for compatibility on your device</li>
-					<li>RAM: 4GB minimum</li>
-					<li>Disk Space: ~500MB</li>
-				</ul>
-				<h4>Required Tools</h4>
-				<ul>
-					<li>Any C++ Compatibile IDE on Windows - JetBrains Rider or Visual Studio 2022 recommended</li>
-					<li>C++20 compiler (MSVC)</li>
-					<li>Windows SDK (latest)</li>
-					<li>Git for Windows</li>
-				</ul>
-				<h4>Dependencies (Included)</h4>
-				<ul>
-					<li>GLFW - Windowing and input</li>
-					<li>GLAD - OpenGL loader (4.6 Core)</li>
-					<li>ImGui - UI framework</li>
-					<li>ImGuizmo - 3D manipulation gizmos</li>
-					<li>GLM - Math library</li>
-					<li>Assimp - 3D model loading</li>
-					<li>stb_image - Image loading</li>
-				</ul>
-			</div>	
+            <div class="info-card">
+                <h3>Build Requirements</h3>
+                <hr class="divider">
+                <h4>System Requirements</h4>
+                <ul>
+                    <li>OS: Windows 10/11 (x64 only) - Linux and MacOS support planned for later date</li>
+                    <li>GPU: OpenGL 4.6 compatible graphics card</li>
+                    <li>Disk Space: ~500MB</li>
+                </ul>
+                <h4>Required Tools</h4>
+                <ul>
+                    <li>Any C++ Compatibile IDE on Windows - JetBrains Rider or Visual Studio 2022 recommended</li>
+                    <li>C++20 compiler (MSVC)</li>
+                    <li>Windows SDK (latest)</li>
+                </ul>
+                <h4>Dependencies (Included)</h4>
+                <ul>
+                    <li>GLFW - Windowing and input</li>
+                    <li>GLAD - OpenGL loader (4.6 Core)</li>
+                    <li>ImGui - UI framework</li>
+                    <li>ImGuizmo - 3D manipulation gizmos</li>
+                    <li>GLM - Math library</li>
+                    <li>Assimp - 3D model loading</li>
+                    <li>stb_image - Image loading</li>
+					<li>Jolt - Physics and collision</li>
+					<li>nlohmann/json - Serialization</li>
+                </ul>
+            </div>
 
-			<br>
-			
-			<div style="background-color: rgb(68, 65, 65, 0.3); 
-						padding: 1em 1em 2em 2em;
-						border-radius: 0.2em;
-						box-shadow: 0 0 30px rgba(195, 185, 183, 0.3);">
-				<h3 >Build Instructions</h3>
-				<hr>
-				<ol>
-					<li>
-						Clone the repository with submodules
-						<p>
-						git clone --recursive https://github.com/Caleb-Kronstad/Bonfire Bonfire<br>
-						cd Bonfire<br>
-						Note: The --recursive flag automatically downloads all dependencies (~200MB)
-						</p>
-					</li>
-					<li>
-						Run the setup script
-						<p>
-						cd Scripts<br>
-						Setup-Windows.bat<br>
-						Note: This runs Premake5 and generates Bonfire.sln in the root directory
-						</p>
-					</li>
-				</ol>
-			</div>
-			
-			<br>
+            <div class="info-card">
+                <h3>Build Instructions</h3>
+                <hr class="divider">
+                <ol>
+                    <li>
+                        Clone the repository with submodules
+                        <p>
+                        git clone --recursive https://github.com/Caleb-Kronstad/Bonfire Bonfire<br>
+                        cd Bonfire<br>
+                        Note: The --recursive flag automatically downloads all dependencies (~200MB)
+                        </p>
+                    </li>
+                    <li>
+                        Run the setup script
+                        <p>
+                        cd Scripts<br>
+                        Setup-Windows.bat<br>
+                        Note: This runs Premake5 and generates Bonfire.sln in the root directory
+                        </p>
+                    </li>
+                </ol>
+            </div>
 
-			<div style="background-color: rgb(68, 65, 65, 0.3); 
-						padding: 1em 1em 2em 2em;
-						border-radius: 0.2em;
-						box-shadow: 0 0 30px rgba(195, 185, 183, 0.3);">
-				<h3>Creating Custom Projects</h3>
-				<hr>
-				<ol>
-					<li>Copy Project/ folder and rename</li>
-					<li>Modify Source/ProjectControl.cpp to add custom layers</li>
-					<li>Inherit from Bonfire::Layer class</li>
-					<li>Update Build-Project.lua if adding new files</li>
-					<li>Re-run Scripts/Setup-Windows.bat</li>
-				</ol>
-			</div>
-		</main>
-		
-		
-		<footer class="bottom">
+            <div class="info-card">
+                <h3>Creating Custom Projects</h3>
+                <hr class="divider">
+                <ol>
+                    <li>Copy Bonfire/ folder and rename</li>
+                    <li>Modify Source/ProjectControl.cpp to add custom layers</li>
+                    <li>Inherit from Bonfire::Layer class</li>
+                    <li>Re-run Scripts/Setup-Windows.bat</li>
+                </ol>
+            </div>
+        </main>
+        
+        
+        <footer class="bottom">
             <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
         </footer>
 
-    	<canvas id="ember-canvas"></canvas>
-		<canvas id="bg"></canvas>
-	</body>
+        <canvas id="ember-canvas"></canvas>
+        <canvas id="bg"></canvas>
+    </body>
 </html>
-	
+    
 <script src="script/nav.js"></script>
 <script src="script/ember_system.js"></script>
 <script src="script/day_cycle.js"></script>
