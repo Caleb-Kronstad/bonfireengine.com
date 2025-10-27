@@ -15,7 +15,8 @@ const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 const pixelSize = 50;                                  // Internal resolution of the canvas.
 canvas.width = pixelSize;                             // Smaller values → chunkier pixels when scaled to full screen.
-canvas.height = pixelSize;                            
+canvas.height = pixelSize;    
+
 const duration = 60000;                              // Length of one full cycle is measured in milliseconds (60,000ms = 60s = 1 day/night cycle here).
 let backgroundMode = "cycle";                       // backgroundMode = "midnight" | "morning" | "twilight"  are fixed gradients; cycle is the normal animation.
 

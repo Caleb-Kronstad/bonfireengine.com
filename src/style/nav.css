@@ -47,16 +47,38 @@ nav > *
 /* Mobile */
 @media screen and (max-width: 768px) {
     nav {
-        font-size: 16px;
-        gap: 0.5rem;
-    }
+          font-size: 12px;
+          gap: 0.25rem;
+          padding: 0.5rem 0;
+      }
 
-    .nav-btn {
-        min-width: 120px;
-        min-height: 44px;
-        font-size: 16px;
-        margin: 0.25rem;
-        border-radius: 0.5rem;
-        border-width: 2px;
-    }
+      .navigation {
+          padding: 0.5vh 0;
+      }
+
+      .nav-btn {
+          min-width: 70px;
+          min-height: 32px;
+          font-size: 11px;
+          margin: 0.15rem;
+          padding: 0.3vh 0.8vw;
+          border-radius: 4px;
+          border-width: 1px;
+      }
+
+      .dropdown {
+          position: relative;
+          left: 0;
+      }
+
+      .drop-btn {
+          padding: 6px 10px;
+          font-size: 11px;
+          border-width: 1px;
+      }
+
+      .dropdown-content button {
+          padding: 8px 12px;
+          font-size: 11px;
+      }
 }
