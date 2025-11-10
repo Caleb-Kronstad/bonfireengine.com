@@ -171,6 +171,8 @@ function transitionToMode(mode) {
 
   transitionActive = true;
   transitionStart = Date.now();
+
+  localStorage.setItem("backgroundMode", mode);
 }
 
 function setBackgroundMode(mode) {
@@ -183,7 +185,8 @@ function setBackgroundMode(mode) {
 // ======================== initial page background mode and the button hookups ==================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  backgroundMode = "midnight";
+  const savedMode = localStorage.getItem("backgroundMode");
+  backgroundMode = savedMode || "midnight";
 
   document.getElementById("Midnight-btn").addEventListener("click", () => transitionToMode("midnight"));
   document.getElementById("Morning-btn").addEventListener("click", () => transitionToMode("morning"));
