@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bonfire - Download </title>
+        <meta name="author" content="Levi Diller">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="resources/bonfire-animation.gif">
+        <link rel="stylesheet" href="style/general.css">
+        <link rel="stylesheet" href="style/nav.css">
+    </head>
+
+    <body>
+        <header class="navigation">
+            <nav>
+				<button class="nav-btn" id="home-btn"><b>HOME</b></button>
+				<button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
+				<button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
+				<button class="nav-btn" id="devlog-btn"><b>DEVLOG</b></button>
+                <button class="nav-btn" id="documentation-btn"><b>DOCUMENTATION</b></button>
+
+                <div class="dropdown">
+                    <button class="drop-btn"><b>Background ▼</b></button>
+                    <div class="dropdown-content">
+                        <button id="Midnight-btn"><b>Midnight</b></button>
+                        <button id="Morning-btn"><b>Morning</b></button>
+                        <button id="Twilight-btn"><b>Twilight</b></button>
+                        <button id="Cycle-btn"><b>Day-Night Cycle</b></button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <h1 style="text-align: center; margin-top: 100px;">This Page is a Work in Progress</h1>
+        </main>
+        
+        <footer class="bottom">
+            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
+        </footer>
+
+        <canvas id="ember-canvas"></canvas>
+        <canvas id="bg"></canvas>
+    </body>
+</html>
+    
+<script src="script/nav.js"></script>
+<script src="script/ember_system.js"></script>
+<script src="script/day_cycle.js"></script>

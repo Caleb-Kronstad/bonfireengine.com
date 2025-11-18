@@ -10,7 +10,9 @@ document.getElementById("showcase-btn").onclick = function() {
 document.getElementById("devlog-btn").onclick = function() {
     location.href = "devlog.html";
 };
-
+document.getElementById("documentation-btn").onclick = function() {
+    location.href = "documentation.html";
+};
 
 document.getElementById("Github-btn").onclick = function() {
     location.href = "https://github.com/Caleb-Kronstad/Bonfire";
