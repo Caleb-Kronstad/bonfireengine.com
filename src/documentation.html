@@ -33,12 +33,46 @@
         </header>
         
         <main>
-            <h1 style="text-align: center; margin-top: 100px;">This Page is a Work in Progress</h1>
+            <br><br>
+            <div class="search-wrapper">
+                <label for="search" style="font-size: 50px; color: #ff9966;">Search Documents</label>
+                <input type="search" id="search" data-search>
+            </div>
+
+            <div class="documentation-cards" data-documentation-cards-container>
+                <template data-documentation-card-template>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="title" data-title></div>
+                            <div class="categories" data-categories></div>
+                            <div class="version_no" data-version_no></div>
+                            <div class="updation_date" data-updation_date></div>
+                            
+                            <span class="card-icon">⧉</span>
+                        </div>
+
+                        <div class="content" data-content></div>
+                            
+                        <div class="slug" data-slug style="display:none;"></div>
+                        <div class="creation_date" data-creation_date style="display:none;"></div>
+                    </div>
+                </template>
+            </div>
         </main>
         
         <footer class="bottom">
             <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
         </footer>
+
+        <div class="doc-modal" id="docModal">
+            <div class="doc-modal-backdrop"></div>
+            <div class="doc-modal-content">
+                <button class="doc-modal-close">&times;</button>
+                <div class="doc-modal-body">
+                    <!-- Card content will be inserted here -->
+                </div>
+            </div>
+        </div>
 
         <canvas id="ember-canvas"></canvas>
         <canvas id="bg"></canvas>
@@ -48,3 +82,4 @@
 <script src="script/nav.js"></script>
 <script src="script/ember_system.js"></script>
 <script src="script/day_cycle.js"></script>
+<script src="script/documentation.js" defer></script>
