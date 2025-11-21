@@ -127,7 +127,7 @@ function openDocModal(docData) {
             </div>
         </div>
         <div class="doc-content">
-            ${docData.Content || 'No content available.'}
+           ${formatDocContent(docData.Content)}
         </div>
     `;
     
@@ -152,3 +152,101 @@ document.addEventListener('keydown', (e) => {
 });
 
 //==================================================================================================
+
+
+// Idea for later:
+
+// take the Content.textContent object and either split or
+//  segment it between sentences using the period as a delimeter
+
+// if anything ends with a '}', '/', ';', '.', or ')' that's a line end delimeter
+// if anything starts with a dash ('-'), that's the start of a list item
+// if any header end with a colon (':'), that's a header for an ordered or unorederd list
+// if any statement starts with a '(a symbol of my choosing, idk yet)' that's a header
+
+//============ Below is experimental code to stylize the content of the documentation ==============
+
+function formatDocContent(content) {
+    if (!content) return 'No content available.';
+    
+    const lines = content.split('\n');
+    let html = '';
+    let inCodeBlock = false;
+    let inList = false;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const trimmed = line.trim();
+        
+        // Skip empty lines
+        if (trimmed === '') {
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            html += '<br>';
+            continue;
+        }
+        
+        // Detect code blocks (lines with semicolons, braces, function calls)
+        const isCode = /[{};()]/.test(trimmed) || 
+                       trimmed.startsWith('std::') || 
+                       trimmed.startsWith('glm::') ||
+                       trimmed.includes('->') ||
+                       trimmed.includes('//');
+        
+        if (isCode) {
+            if (!inCodeBlock) {
+                html += '<pre><code>';
+                inCodeBlock = true;
+            }
+            html += escapeHtml(line) + '\n';
+            
+            const nextLine = lines[i + 1];
+            if (!nextLine || (!nextLine.trim().match(/[{};()]/) && !nextLine.trim().startsWith('//'))) {
+                html += '</code></pre>';
+                inCodeBlock = false;
+            }
+        }
+        // For list items
+        else if (trimmed.startsWith('-')) {
+            if (!inList) {
+                html += '<ul class="doc-list">';
+                inList = true;
+            }
+            html += `<li>${trimmed.substring(1).trim()}</li>`;
+        }
+        // Detect section headers (all caps or followed by blank line)
+        else if (trimmed === trimmed.toUpperCase() && trimmed.length > 3 && /^[A-Z\s]+$/.test(trimmed)) {
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            html += `<h3 class="doc-header">${trimmed}</h3>`;
+        }
+        // Regular paragraph
+        else {
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            html += `<p>${escapeHtml(trimmed)}</p>`;
+        }
+    }
+    
+    if (inCodeBlock) html += '</code></pre>';
+    if (inList) html += '</ul>';
+    
+    return html;
+}
+
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}

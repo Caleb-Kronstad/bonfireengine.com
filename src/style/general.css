@@ -1465,3 +1465,55 @@ footer {
         font-size: 1.1rem;
         line-height: 1.8;
     }
+
+/* ======================== Documentation Content Styles ======================================== */
+
+.doc-content h3.doc-header {
+    color: #ff9966;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(169, 60, 32, 0.5);
+}
+
+.doc-content p {
+    margin: 0.8rem 0;
+    line-height: 1.8;
+}
+
+.doc-content pre {
+    background: rgba(0, 0, 0, 0.6);
+    border-left: 4px solid #a93c20;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    border-radius: 4px;
+}
+
+.doc-content code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #ffd4a8;
+    line-height: 1.6;
+}
+
+.doc-content ul.doc-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.doc-content ul.doc-list li {
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.doc-content ul.doc-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0.5rem;
+    color: #a93c20;
+    font-weight: bold;
+}
