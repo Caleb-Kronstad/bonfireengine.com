@@ -16,11 +16,15 @@ searchInput.addEventListener("input", e => {
 })
 
 //===================== Database fetch endpoint and documentation template logic ===================
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
+const databaseUrlAll = process.env.DB_URL_A;
+const databaseUrlRecent = process.env.DB_URL_R;
 
-function loadRecentDocs() {
-    fetch("https://aghdvamgskydtpmipmcr.supabase.co/functions/v1/get-recent-docs", {
+function loadRecentDocs(databaseUrlRecent) {
+    fetch("https://jpuaoqbucbqbsfnirrxk.supabase.co/functions/v1/get-recent", {
         headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnaGR2YW1nc2t5ZHRwbWlwbWNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNzQxNjQsImV4cCI6MjA3ODY1MDE2NH0.ItFy4XusgYDHUU5ihRLLaaL4iI_l71KKch0Y5dl5KuU'
+            'Authorization': 'Bearer ' + apiKey
         }
     })
     .then(res => res.json())
@@ -29,10 +33,10 @@ function loadRecentDocs() {
     });
 }
 
-function loadAllDocs() {
-return fetch("https://aghdvamgskydtpmipmcr.supabase.co/functions/v1/get-documentation-full", {
+function loadAllDocs(databaseUrlAll) {
+return fetch("https://jpuaoqbucbqbsfnirrxk.supabase.co/functions/v1/get-documentation-full", {
     headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnaGR2YW1nc2t5ZHRwbWlwbWNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNzQxNjQsImV4cCI6MjA3ODY1MDE2NH0.ItFy4XusgYDHUU5ihRLLaaL4iI_l71KKch0Y5dl5KuU'
+        'Authorization': 'Bearer ' + apiKey
     }
 })
     .then(res => res.json())
