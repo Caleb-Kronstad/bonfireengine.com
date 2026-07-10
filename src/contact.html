@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Caleb Kronstad">
-    <link rel="icon" href="../resources/bonfire-logo.png">
+    <link rel="icon" href="resources/bonfire-logo.png">
     <title>Bonfire - Contact</title>
 
-    <link rel="stylesheet" type="text/css" href="../style/nav.css">
+    <link rel="stylesheet" type="text/css" href="style/nav.css">
 </head>
 
 <style>
@@ -150,7 +150,7 @@
         <div class="content">
             <h1 class="page-title">Contact</h1>
             <p>Have questions, feedback, or found a bug in Bonfire?</p>
-            <p>Email: <a class="email" href="mailto:calebtkronstad@gmail.com">calebtkronstad@gmail.com</a></p>
+            <p>Email: <a class="email" href="mailto:caleb@calebkronstad.com">caleb@calebkronstad.com</a></p>
 
             <div class="external">
                 <a class="external-btn" href="https://github.com/Caleb-Kronstad/Bonfire" target="_blank"><b>Engine Repository</b></a>
@@ -159,29 +159,11 @@
             </div>
         </div>
 
-        <img id="bonfire-background" src="../resources/bonfire-background.png" alt="background">
-        <img id="bonfire-animation" src="../resources/bonfire-animation.gif" alt="animation">
+        <img id="bonfire-background" src="resources/bonfire-background.png" alt="background">
+        <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
         <canvas id="ember-canvas"></canvas>
     </body>
 </html>
 
-<script>
-    document.getElementById("home-btn").onclick = function() {
-        if (typeof saveEmberState === 'function') saveEmberState();
-        location.href = "../index.html";
-    };
-    document.getElementById("showcase-btn").onclick = function() {
-        if (typeof saveEmberState === 'function') saveEmberState();
-        location.href = "../showcase.html";
-    };
-    document.getElementById("download-btn").onclick = function() {
-        if (typeof saveEmberState === 'function') saveEmberState();
-        location.href = "../download.html";
-    };
-    document.getElementById("contact-btn").onclick = function() {
-        if (typeof saveEmberState === 'function') saveEmberState();
-        location.href = "index.html";
-    };
-</script>
-
-<script src="../script/ember_system.js"></script>
+<script src="script/nav.js"></script>
+<script src="script/ember_system.js"></script>

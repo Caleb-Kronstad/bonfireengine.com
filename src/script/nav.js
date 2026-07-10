@@ -12,5 +12,5 @@ document.getElementById("download-btn").onclick = function() {
 };
 document.getElementById("contact-btn").onclick = function() {
     if (typeof saveEmberState === 'function') saveEmberState();
-    location.href = "contact/index.html";
+    location.href = "contact.html";
 };
