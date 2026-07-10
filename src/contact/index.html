@@ -1,0 +1,187 @@
+<!-- Site concept and design feedback from Levi Diller (https://github.com/TheCursedSoul404) -->
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Caleb Kronstad">
+    <link rel="icon" href="../resources/bonfire-logo.png">
+    <title>Bonfire - Contact</title>
+
+    <link rel="stylesheet" type="text/css" href="../style/nav.css">
+</head>
+
+<style>
+    html
+    {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #120401;
+        scrollbar-gutter: stable;
+    }
+
+    body
+    {
+        overflow-x: hidden;
+        margin: 5vh;
+        font-family: Helvetica;
+        padding-top: 2vw;
+        color: #804c39;
+    }
+
+    .content
+    {
+        position: relative;
+        z-index: 20;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 10vh;
+    }
+
+    .page-title
+    {
+        color: #bc4a34;
+        margin-top: 10vh;
+        margin-bottom: 1vh;
+    }
+
+    .email, .email:visited
+    {
+        color: #a65b3f;
+    }
+
+    .external
+    {
+        display: flex;
+        justify-content: center;
+        gap: 1vw;
+        margin-top: 3vh;
+    }
+
+    .external-btn
+    {
+        border-radius: 0.2vw;
+        background-color: #541801;
+        border: 0.1vw solid #541801;
+        color: #a93c20;
+        padding: 1vh 1.5vw;
+    }
+
+    .external-btn:hover
+    {
+        background-color: rgb(65, 19, 1);
+        border: 0.1vw solid #541801;
+        transform: scale(1.1) perspective(1px);
+        color: #be481b;
+    }
+
+    #bonfire-background
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #bonfire-animation
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 12;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #ember-canvas {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: 11;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 768px) {
+        body
+        {
+            margin: 0;
+            margin-top: 15vh;
+            padding: 2vh;
+        }
+
+        .page-title
+        {
+            font-size: 8vw;
+        }
+
+        .external
+        {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #bonfire-background,
+        #bonfire-animation
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+    }
+
+</style>
+
+<html>
+    <body>
+        <header class="navigation">
+            <nav>
+                <button class="nav-btn" id="home-btn"><b>HOME</b></button>
+                <button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
+                <button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
+                <button class="nav-btn" id="contact-btn"><b>CONTACT</b></button>
+            </nav>
+        </header>
+
+        <div class="content">
+            <h1 class="page-title">Contact</h1>
+            <p>Have questions, feedback, or found a bug in Bonfire?</p>
+            <p>Email: <a class="email" href="mailto:calebtkronstad@gmail.com">calebtkronstad@gmail.com</a></p>
+
+            <div class="external">
+                <a class="external-btn" href="https://github.com/Caleb-Kronstad/Bonfire" target="_blank"><b>Engine Repository</b></a>
+                <a class="external-btn" href="https://github.com/Caleb-Kronstad/Bonfire/issues" target="_blank"><b>Report an Issue</b></a>
+                <a class="external-btn" href="https://github.com/Caleb-Kronstad/bonfireengine.com" target="_blank"><b>Website Source</b></a>
+            </div>
+        </div>
+
+        <img id="bonfire-background" src="../resources/bonfire-background.png" alt="background">
+        <img id="bonfire-animation" src="../resources/bonfire-animation.gif" alt="animation">
+        <canvas id="ember-canvas"></canvas>
+    </body>
+</html>
+
+<script>
+    document.getElementById("home-btn").onclick = function() {
+        if (typeof saveEmberState === 'function') saveEmberState();
+        location.href = "../index.html";
+    };
+    document.getElementById("showcase-btn").onclick = function() {
+        if (typeof saveEmberState === 'function') saveEmberState();
+        location.href = "../showcase.html";
+    };
+    document.getElementById("download-btn").onclick = function() {
+        if (typeof saveEmberState === 'function') saveEmberState();
+        location.href = "../download.html";
+    };
+    document.getElementById("contact-btn").onclick = function() {
+        if (typeof saveEmberState === 'function') saveEmberState();
+        location.href = "index.html";
+    };
+</script>
+
+<script src="../script/ember_system.js"></script>

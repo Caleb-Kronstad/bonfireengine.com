@@ -1,118 +1,273 @@
+<!-- Site concept and design feedback from Levi Diller (https://github.com/TheCursedSoul404) -->
 <!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Caleb Kronstad">
+    <meta name="description" content="Build Bonfire from source on Windows or Linux.">
+    <link rel="icon" href="resources/bonfire-logo.png">
+    <title>Bonfire - Download</title>
+
+    <link rel="stylesheet" type="text/css" href="style/nav.css">
+</head>
+
+<style>
+    html
+    {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #120401;
+        scrollbar-gutter: stable;
+    }
+
+    body
+    {
+        overflow-x: hidden;
+        margin: 5vh;
+        font-family: Helvetica;
+        padding-top: 2vw;
+        color: #804c39;
+    }
+
+    .content
+    {
+        position: relative;
+        z-index: 20;
+        max-width: 900px;
+        margin: 0 auto;
+        padding-bottom: 10vh;
+    }
+
+    .page-title
+    {
+        text-align: center;
+        color: #bc4a34;
+        margin-top: 10vh;
+        margin-bottom: 4vh;
+    }
+
+    .github-button
+    {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 6vh auto;
+        padding: 1.2vh 2vw;
+        border-radius: 0.2vw;
+        background-color: #541801;
+        border: 0.1vw solid #541801;
+        color: #a93c20;
+        font-size: 1.1em;
+        cursor: pointer;
+    }
+
+    .github-button:hover
+    {
+        background-color: rgb(65, 19, 1);
+        border: 0.1vw solid #541801;
+        transform: scale(1.05) perspective(1px);
+        color: #be481b;
+    }
+
+    .info-card
+    {
+        border: 1px solid #541801;
+        border-radius: 4px;
+        background-color: #1a0702;
+        padding: 1.5vw 2vw;
+        margin-bottom: 3vh;
+    }
+
+    .info-card h2
+    {
+        color: #bc4a34;
+        margin-top: 0;
+    }
+
+    .info-card h3
+    {
+        color: #bc4a34;
+        margin-bottom: 0.3vh;
+    }
+
+    .info-card ul, .info-card ol
+    {
+        font-family: monospace;
+        font-size: 0.9em;
+        color: #804c39;
+        padding-left: 1.2em;
+    }
+
+    .info-card li
+    {
+        margin-bottom: 0.5vh;
+    }
+
+    .divider
+    {
+        border: none;
+        border-top: 1px solid #541801;
+        margin: 1.5vh 0;
+    }
+
+    .code-block
+    {
+        background-color: #0c0300;
+        border: 1px solid #541801;
+        border-radius: 4px;
+        padding: 1vw 1.2vw;
+        margin: 0.8vh 0;
+        overflow-x: auto;
+    }
+
+    .code-block pre
+    {
+        margin: 0;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        color: #c98a63;
+    }
+
+    #bonfire-background
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #bonfire-animation
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 12;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #ember-canvas {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: 11;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 768px) {
+        body
+        {
+            margin: 0;
+            margin-top: 15vh;
+            padding: 2vh;
+        }
+
+        .page-title
+        {
+            font-size: 8vw;
+        }
+
+        #bonfire-background,
+        #bonfire-animation
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+    }
+
+</style>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Bonfire - Download </title>
-        <meta name="author" content="Levi Diller">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="resources/bonfire-animation.gif">
-        <link rel="stylesheet" href="style/general.css">
-        <link rel="stylesheet" href="style/nav.css">
-    </head>
-
     <body>
         <header class="navigation">
             <nav>
-				<button class="nav-btn" id="home-btn"><b>HOME</b></button>
-				<button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
-				<button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
-				<button class="nav-btn" id="devlog-btn"><b>DEVLOG</b></button>
-                <button class="nav-btn" id="documentation-btn"><b>DOCUMENTATION</b></button>
-
-                <div class="dropdown">
-                    <button class="drop-btn"><b>Background ▼</b></button>
-                    <div class="dropdown-content">
-                        <button id="Midnight-btn"><b>Midnight</b></button>
-                        <button id="Morning-btn"><b>Morning</b></button>
-                        <button id="Twilight-btn"><b>Twilight</b></button>
-                        <button id="Cycle-btn"><b>Day-Night Cycle</b></button>
-                    </div>
-                </div>
+                <button class="nav-btn" id="home-btn"><b>HOME</b></button>
+                <button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
+                <button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
+                <button class="nav-btn" id="contact-btn"><b>CONTACT</b></button>
             </nav>
         </header>
-        
-        <main>
-            <div class="download-hero">
-                <button class="github-button" id="Github-btn">
-                    <span class="button-text">GitHub Repository</span>
-                </button>
-            </div>
+
+        <div class="content">
+            <h1 class="page-title">Download</h1>
+
+            <a class="github-button" href="https://github.com/Caleb-Kronstad/Bonfire" target="_blank">GitHub Repository</a>
 
             <div class="info-card">
-                <h3>Build Requirements</h3>
+                <h2>Build Requirements</h2>
                 <hr class="divider">
-                <h4>System Requirements</h4>
+
+                <h3>System Requirements</h3>
                 <ul>
-                    <li>OS: Windows 10/11 (x64 only) - Linux and MacOS support planned for later date</li>
+                    <li>OS: Windows 10/11 (x64) or Linux (x64)</li>
                     <li>GPU: OpenGL 4.6 compatible graphics card</li>
-                    <li>Disk Space: ~500MB</li>
+                    <li>Disk Space: ~500MB, including dependencies</li>
                 </ul>
-                <h4>Required Tools</h4>
+
+                <h3>Required Tools</h3>
                 <ul>
-                    <li>Any C++ Compatibile IDE on Windows - JetBrains Rider or Visual Studio 2022 recommended</li>
-                    <li>C++20 compiler (MSVC)</li>
-                    <li>Windows SDK (latest)</li>
+                    <li>C++20 compiler - MSVC on Windows, GCC or Clang on Linux</li>
+                    <li>Windows: Visual Studio 2022 or JetBrains Rider, latest Windows SDK</li>
+                    <li>Premake5 (bundled, used to generate the build)</li>
                 </ul>
-                <h4>Dependencies (Included)</h4>
+
+                <h3>Dependencies (bundled as submodules)</h3>
                 <ul>
                     <li>GLFW - Windowing and input</li>
-                    <li>GLAD - OpenGL loader (4.6 Core)</li>
-                    <li>ImGui - UI framework</li>
-                    <li>ImGuizmo - 3D manipulation gizmos</li>
+                    <li>GLAD - OpenGL 4.6 loader</li>
                     <li>GLM - Math library</li>
                     <li>Assimp - 3D model loading</li>
-                    <li>stb_image - Image loading</li>
-					<li>Jolt - Physics and collision</li>
-					<li>nlohmann/json - Serialization</li>
+                    <li>SOIL2 - Image loading</li>
+                    <li>nlohmann/json - Serialization</li>
+                    <li>Dear ImGui - Editor UI</li>
+                    <li>ImGuizmo - 3D transform gizmos</li>
+                    <li>Jolt Physics - Simulation and collision</li>
+                    <li>Lua - Scripting</li>
+                    <li>miniaudio - Audio playback</li>
                 </ul>
             </div>
 
             <div class="info-card">
-                <h3>Build Instructions</h3>
+                <h2>Build Instructions</h2>
                 <hr class="divider">
+
                 <ol>
                     <li>
                         Clone the repository with submodules
-                        <p>
-                        git clone --recursive https://github.com/Caleb-Kronstad/Bonfire Bonfire<br>
-                        cd Bonfire<br>
-                        Note: The --recursive flag automatically downloads all dependencies (~200MB)
-                        </p>
+                        <div class="code-block"><pre>git clone --recursive https://github.com/Caleb-Kronstad/Bonfire Bonfire
+cd Bonfire</pre></div>
+                        The --recursive flag downloads all dependencies (~200MB)
                     </li>
                     <li>
-                        Run the setup script
-                        <p>
-                        cd Scripts<br>
-                        Setup-Windows.bat<br>
-                        Note: This runs Premake5 and generates Bonfire.sln in the root directory
-                        </p>
+                        Windows
+                        <div class="code-block"><pre>cd Scripts
+Windows-Setup.bat
+Windows-Build.bat
+Windows-Run.bat</pre></div>
+                        Windows-Setup.bat runs Premake and generates a Visual Studio 2022 solution in Build/. Build settings (config, MSBuild path) are configured in Windows-Config.bat.
+                    </li>
+                    <li>
+                        Linux
+                        <div class="code-block"><pre>cd Scripts
+./Linux-Setup.sh [gcc|clang] [debug|release|dist]
+./Linux-Build.sh [debug|release|dist] [--clean] [--bear]
+./Linux-Run.sh [debug|release|dist]</pre></div>
+                        Arguments can be given in any order. Linux-Build.sh builds incrementally by default; pass --clean to force a full rebuild of the selected config, and --bear to generate a compile_commands.json at the project root for CLion. See Scripts/INSTRUCTIONS.txt for the full set of options.
                     </li>
                 </ol>
             </div>
+        </div>
 
-            <div class="info-card">
-                <h3>Creating Custom Projects</h3>
-                <hr class="divider">
-                <ol>
-                    <li>Copy Bonfire/ folder and rename</li>
-                    <li>Modify Source/ProjectControl.cpp to add custom layers</li>
-                    <li>Inherit from Bonfire::Layer class</li>
-                    <li>Re-run Scripts/Setup-Windows.bat</li>
-                </ol>
-            </div>
-        </main>
-        
-        
-        <footer class="bottom">
-            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
-        </footer>
-
+        <img id="bonfire-background" src="resources/bonfire-background.png" alt="background">
+        <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
         <canvas id="ember-canvas"></canvas>
-        <canvas id="bg"></canvas>
     </body>
 </html>
-    
+
 <script src="script/nav.js"></script>
 <script src="script/ember_system.js"></script>
-<script src="script/day_cycle.js"></script>

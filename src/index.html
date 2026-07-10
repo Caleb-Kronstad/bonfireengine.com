@@ -1,88 +1,152 @@
+<!-- Site concept and design feedback from Levi Diller (https://github.com/TheCursedSoul404) -->
 <!DOCTYPE html>
-
 <head>
-	<meta charset="utf-8">
-	<title>Bonfire</title>
-	<meta name="author" content="Levi Diller">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="resources/bonfire-animation.gif">
-	<link rel="stylesheet" href="style/general.css">
-	<link rel="stylesheet" href="style/nav.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Caleb Kronstad">
+    <meta name="description" content="Bonfire is a cross-platform 3D game engine built with C++ and OpenGL.">
+    <link rel="icon" href="resources/bonfire-logo.png">
+    <title>Bonfire</title>
+
+    <link rel="stylesheet" type="text/css" href="style/nav.css">
 </head>
 
+<style>
+    html
+    {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #120401;
+        scrollbar-gutter: stable;
+    }
+
+    body
+    {
+        overflow-x: hidden;
+        overflow-y: hidden;
+        margin: 5vh;
+        font-family: Helvetica;
+        font-size: 1vw;
+        padding-top: 2vw;
+    }
+
+    .title
+    {
+        width: 100%;
+        padding-top: 1vh;
+        font-size: 4vw;
+        text-align: center;
+        color: #802615;
+    }
+
+    .title h1
+    {
+        position: relative;
+        z-index: 20;
+        margin-top: 10vh;
+        margin-bottom: 0.5vh;
+    }
+
+    .title p
+    {
+        margin: 0.5vh;
+        font-size: 30%;
+        color: #802615;
+        font-family: monospace;
+    }
+
+    #bonfire-background
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #bonfire-animation
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 12;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #ember-canvas {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: 11;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 768px) {
+        body
+        {
+            margin: 2vh;
+            padding-top: 4vw;
+        }
+
+        .title
+        {
+            font-size: 8vw;
+        }
+
+        .title h1 {
+            margin-top: 15vh;
+            margin-bottom: 2vh;
+            font-size: 10vw;
+        }
+
+        .title p {
+            font-size: 5vw;
+        }
+
+        #bonfire-background
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+
+        #bonfire-animation
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+    }
+
+</style>
+
 <html>
-	<body>
+    <body>
+        <header class="navigation">
+            <nav>
+                <button class="nav-btn" id="home-btn"><b>HOME</b></button>
+                <button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
+                <button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
+                <button class="nav-btn" id="contact-btn"><b>CONTACT</b></button>
+            </nav>
+        </header>
 
-		<header class="navigation">
-			<nav>
-				<button class="nav-btn" id="home-btn"><b>HOME</b></button>
-				<button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
-				<button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
-				<button class="nav-btn" id="devlog-btn"><b>DEVLOG</b></button>
-				<button class="nav-btn" id="documentation-btn"><b>DOCUMENTATION</b></button>
+        <header class="title">
+            <h1>BONFIRE</h1>
+            <p>A CROSS-PLATFORM 3D GAME ENGINE</p>
+            <img id="bonfire-background" src="resources/bonfire-background.png" alt="background">
+            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
+        </header>
 
-				<div class="dropdown">
-					<button class="drop-btn"><b>Background ▼</b></button>
-					<div class="dropdown-content">
-						<button id="Midnight-btn"><b>Midnight</b></button>
-						<button id="Morning-btn"><b>Morning</b></button>
-						<button id="Twilight-btn"><b>Twilight</b></button>
-						<button id="Cycle-btn"><b>Day-Night Cycle</b></button>
-					</div>
-				</div>
-			</nav>
-		</header>
-		
-		<script src="script/nav.js"></script>
-		
-		<main>
-			<div class="title">
-				<h1 style="color: #802615; 
-						   position: relative;
-						   margin-top: 10vh;
-						   font-size: 110px;
-						   text-align: center;
-					       margin-bottom: 0.5vh;
-    						text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.3);
-						   ">BONFIRE</h1>
-				<p style="color: #802615; position: relative;
-						   margin-top: 0vh;
-						   font-size: 15px;
-						   text-align: center;
-					       margin-bottom: 0.5vh;">A 3D GRAPHICS ENGINE</p>
-			</div>
-		</main>
+        <br><br>
 
         <canvas id="ember-canvas"></canvas>
-		
-        <footer class="bottom">
-            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
-        </footer>
-		
-		<canvas id="bg"></canvas>
-	</body>
+    </body>
 </html>
-	
+
 <script src="script/nav.js"></script>
 <script src="script/ember_system.js"></script>
-<script src="script/day_cycle.js"></script>
-
-
-<!--
-Things to implement and improve upon:
-
--	a sun and moon object that cycle through as time passes
-
--	a ground for which the bonfire can sit upon
-
--	other aspects such as a wall, grace, man, or something else to grant the souls like vibe since I know you are a big souls fan.
-
--	perhaps a homogenization of color pallet throughout the content of the website
-
--	minor tweaks to the implementation of former portions to make the site scaleable if it does become popular
-
--	embed code from the engine into the showcase page, show that users can sandbox it and get an idea of how the engine "feels". (this one as you've said, will be difficult)
-
--	fix the viewport sizes for phone, ipad, and laptop through @media
-
--->

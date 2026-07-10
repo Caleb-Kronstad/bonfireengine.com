@@ -1,266 +1,363 @@
+<!-- Site concept and design feedback from Levi Diller (https://github.com/TheCursedSoul404) -->
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Bonfire - Engine Showcase</title>
-        <meta name="author" content="Levi Diller">
-        <meta name="description" content="Explore Bonfire's architecture and features - a modern C++20 3D game engine">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="resources/bonfire-animation.gif">
-        <link rel="stylesheet" href="style/general.css">
-        <link rel="stylesheet" href="style/nav.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Caleb Kronstad">
+    <meta name="description" content="Explore Bonfire's architecture, editor, and technology stack.">
+    <link rel="icon" href="resources/bonfire-logo.png">
+    <title>Bonfire - Showcase</title>
 
+    <link rel="stylesheet" type="text/css" href="style/nav.css">
+</head>
+
+<style>
+    html
+    {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #120401;
+        scrollbar-gutter: stable;
+    }
+
+    body
+    {
+        overflow-x: hidden;
+        margin: 5vh;
+        font-family: Helvetica;
+        padding-top: 2vw;
+        color: #804c39;
+    }
+
+    .content
+    {
+        position: relative;
+        z-index: 20;
+        max-width: 900px;
+        margin: 0 auto;
+        padding-bottom: 10vh;
+    }
+
+    .page-title
+    {
+        text-align: center;
+        color: #bc4a34;
+        margin-top: 10vh;
+        margin-bottom: 0.5vh;
+    }
+
+    .page-subtitle
+    {
+        text-align: center;
+        color: #804c39;
+        font-family: monospace;
+        margin-top: 0;
+        margin-bottom: 6vh;
+    }
+
+    .section
+    {
+        margin-bottom: 6vh;
+    }
+
+    .section h2
+    {
+        color: #bc4a34;
+        border-bottom: 1px solid #541801;
+        padding-bottom: 0.5vh;
+    }
+
+    .section h3
+    {
+        color: #bc4a34;
+        margin-bottom: 0.3vh;
+    }
+
+    .section p
+    {
+        color: #804c39;
+    }
+
+    .card-list
+    {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2vw;
+    }
+
+    .card
+    {
+        flex: 1 1 200px;
+        border: 1px solid #541801;
+        border-radius: 4px;
+        padding: 1.2vw;
+        background-color: #1a0702;
+    }
+
+    .card strong
+    {
+        color: #bc4a34;
+    }
+
+    .card p, .card span
+    {
+        font-family: monospace;
+        font-size: 0.85em;
+        color: #a65b3f;
+        margin: 0.3vh 0 0 0;
+    }
+
+    .check-list
+    {
+        font-family: monospace;
+        font-size: 0.9em;
+        color: #804c39;
+        padding-left: 1.2em;
+    }
+
+    .code-block
+    {
+        background-color: #0c0300;
+        border: 1px solid #541801;
+        border-radius: 4px;
+        padding: 1.2vw;
+        overflow-x: auto;
+    }
+
+    .code-block pre
+    {
+        margin: 0;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85em;
+        color: #c98a63;
+    }
+
+    #bonfire-background
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #bonfire-animation
+    {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 12;
+        max-width: 50vw;
+        max-height: 60vh;
+    }
+
+    #ember-canvas {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: 11;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 768px) {
+        body
+        {
+            margin: 0;
+            margin-top: 15vh;
+            padding: 2vh;
+        }
+
+        .page-title
+        {
+            font-size: 8vw;
+        }
+
+        .page-subtitle
+        {
+            font-size: 4vw;
+        }
+
+        #bonfire-background,
+        #bonfire-animation
+        {
+            max-width: 80vw;
+            max-height: 50vh;
+        }
+    }
+
+</style>
+
+<html>
     <body>
         <header class="navigation">
             <nav>
-              <button class="nav-btn" id="home-btn"><b>HOME</b></button>
-              <button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
-              <button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
-              <button class="nav-btn" id="devlog-btn"><b>DEVLOG</b></button>
-              <button class="nav-btn" id="documentation-btn"><b>DOCUMENTATION</b></button>
-
-                <div class="dropdown">
-                    <button class="drop-btn"><b>Background ▼</b></button>
-                    <div class="dropdown-content">
-                        <button id="Midnight-btn"><b>Midnight</b></button>
-                        <button id="Morning-btn"><b>Morning</b></button>
-                        <button id="Twilight-btn"><b>Twilight</b></button>
-                        <button id="Cycle-btn"><b>Day-Night Cycle</b></button>
-                    </div>
-                </div>
+                <button class="nav-btn" id="home-btn"><b>HOME</b></button>
+                <button class="nav-btn" id="showcase-btn"><b>SHOWCASE</b></button>
+                <button class="nav-btn" id="download-btn"><b>DOWNLOAD</b></button>
+                <button class="nav-btn" id="contact-btn"><b>CONTACT</b></button>
             </nav>
         </header>
 
-        <main>
-            <div class="section-title">
-                    <h2></h2>
-                    <p></p>
-                </div>
+        <div class="content">
+            <h1 class="page-title">Showcase</h1>
+            <p class="page-subtitle">A layer-based, entity-component 3D engine written in C++20</p>
 
-            <section class="architecture-section">
-                <div class="section-title">
-                    <h2>Core Architecture</h2>
-                    <p>Layer-based design with Entity-Component composition</p>
-                </div>
+            <section class="section">
+                <h2>Core Architecture</h2>
+                <p>Layer-based design with entity-component composition. You can push as many layers as you want onto the stack.</p>
 
-                <div class="two-column-layout">
-                    <div class="content-card">
-                        <h3>Layer System</h3>
-                        <p>You can add as many layers as you want</p>
-                        
-                        <div class="feature-grid">
-                            <div class="feature-box">
-                                <strong>OnAttach()</strong>
-                                <p>Initialize resources</p>
-                            </div>
-                            <div class="feature-box">
-                                <strong>OnUpdate()</strong>
-                                <p>Frame logic</p>
-                            </div>
-                            <div class="feature-box">
-                                <strong>OnInterface..()</strong>
-                                <p>Render UI</p>
-                            </div>
-                            <div class="feature-box">
-                                <strong>OnInput()</strong>
-                                <p>Handle events</p>
-                            </div>
-                            <div class="feature-box">
-                                <strong>OnDetach()</strong>
-                                <p>Cleanup</p>
-                            </div>
-                        </div>
+                <div class="card-list">
+                    <div class="card">
+                        <strong>OnAttach()</strong>
+                        <p>Initialize resources</p>
                     </div>
-
-                    <div class="content-card">
-                        <h3>Project Orchestration</h3>
-                        <p>The Project singleton manages:</p>
-                        <ul class="check-list">
-                            <li>Main game loop and delta time</li>
-                            <li>Layer stack management</li>
-                            <li>Automatic layer lifecycle execution</li>
-                            <li>Editor and runtime integration</li>
-                        </ul>
+                    <div class="card">
+                        <strong>OnUpdate()</strong>
+                        <p>Frame logic</p>
+                    </div>
+                    <div class="card">
+                        <strong>OnInterfaceUpdate()</strong>
+                        <p>Render UI</p>
+                    </div>
+                    <div class="card">
+                        <strong>OnInput()</strong>
+                        <p>Handle events</p>
+                    </div>
+                    <div class="card">
+                        <strong>OnDetach()</strong>
+                        <p>Cleanup</p>
                     </div>
                 </div>
 
-                <div class="code-showcase">
-                    <h3>Layer Implementation Example</h3>
-                    <pre><code>
-class GameLayer : public Bonfire::Layer 
+                <br>
+                <p>The Project singleton manages:</p>
+                <ul class="check-list">
+                    <li>Main game loop and delta time</li>
+                    <li>Layer stack management</li>
+                    <li>Automatic layer lifecycle execution</li>
+                    <li>Editor and runtime integration</li>
+                </ul>
+
+                <div class="code-block">
+                    <pre><code>class GameLayer : public Bonfire::Layer
 {
 public:
-    virtual void OnAttach() override 
+    virtual void OnAttach() override
     {
         // first frame
     }
 
-    virtual void OnUpdate(Bonfire::DeltaTime delta_time) override 
+    virtual void OnUpdate(Bonfire::DeltaTime delta_time) override
     {
         // gameplay
     }
 
-    virtual void OnInterfaceUpdate() override 
+    virtual void OnInterfaceUpdate() override
     {
         // game interface
     }
 
-    virtual void OnInput(Input& input) override
+    virtual void OnInput(Input&amp; input) override
     {
-       // handle player input
+        // handle player input
     }
 };</code></pre>
                 </div>
             </section>
 
-            <section class="editor-section">
-              <div class="section-title">
-                     <h2>Editor</h2>
-                     <p>Visual development windows and tools</p>
-              </div>
+            <section class="section">
+                <h2>Editor</h2>
+                <p>Visual development windows built with Dear ImGui.</p>
 
-              <div class="tech-categories">
-                     <div class="tech-category">
-                     <div class="tech-list">
-                            <div class="tech-item">
-                            <strong>Scene Hierarchy</strong>
-                            <span>Tree view of entities</span>
-                            </div>
-                            <div class="tech-item">
-                            <strong>Details</strong>
-                            <span>Entity properties</span>
-                            </div>
-                            <div class="tech-item">
-                            <strong>Viewport</strong>
-                            <span>Real-time rendering</span>
-                            </div>
-                     </div>
-                     </div>
-
-                     <div class="tech-category">
-                     <div class="tech-list">
-                            <div class="tech-item">
-                            <strong>Param Editor</strong>
-                            <span>Resource references</span>
-                            </div>
-                            <div class="tech-item">
-                            <strong>Console</strong>
-                            <span>Log messages</span>
-                            </div>
-                            <div class="tech-item">
-                            <strong>Debug Info</strong>
-                            <span>Frame timing</span>
-                            </div>
-                     </div>
-                     </div>
-              </div>
-              </section>
-
-              
-
-            <section class="ecs-section">
-                <div class="section-title">
-                    <h2>Entity-Component System</h2>
-                    <p>Object oriented composition</p>
+                <div class="card-list">
+                    <div class="card">
+                        <strong>Hierarchy</strong>
+                        <p>Tree view of entities</p>
+                    </div>
+                    <div class="card">
+                        <strong>Details</strong>
+                        <p>Entity properties and transform</p>
+                    </div>
+                    <div class="card">
+                        <strong>Viewport</strong>
+                        <p>Real-time rendering</p>
+                    </div>
+                    <div class="card">
+                        <strong>Params</strong>
+                        <p>Resource references</p>
+                    </div>
+                    <div class="card">
+                        <strong>Console</strong>
+                        <p>Captured log output</p>
+                    </div>
+                    <div class="card">
+                        <strong>Debug Info</strong>
+                        <p>Frame timing</p>
+                    </div>
                 </div>
+            </section>
 
-                <div class="ecs-grid">
-                    <div class="ecs-card">
-                        <h3>Entity</h3>
-                        <p>Container that holds transform properties and map of components, indexed by their unique ids</p>
+            <section class="section">
+                <h2>Entity-Component System</h2>
+
+                <div class="card-list">
+                    <div class="card">
+                        <strong>Entity</strong>
+                        <p>Holds transform properties and a map of components, indexed by id</p>
                     </div>
-                    <div class="ecs-card">
-                        <h3>Components</h3>
-                        <p>Model, Light Source, Physics, Animation (Scripting and Audio planned)</p>
+                    <div class="card">
+                        <strong>Components</strong>
+                        <p>Model, Light Source, Physics, Animation, Audio, Script, Camera</p>
                     </div>
-                    <div class="ecs-card">
-                        <h3>Scene Graph</h3>
+                    <div class="card">
+                        <strong>Scene Graph</strong>
                         <p>Hierarchical parent-child relationships with transform propagation</p>
                     </div>
                 </div>
-                </div>
             </section>
 
-            <section class="tech-section">
-                <div class="section-title">
-                    <h2>Technology Stack</h2>
-                    <p>Libraries and tools</p>
-                </div>
+            <section class="section">
+                <h2>Technology Stack</h2>
 
-                <div class="tech-categories">
-                    <div class="tech-category">
-                        <h3>Graphics</h3>
-                        <div class="tech-list">
-                            <div class="tech-item">
-                                <strong>OpenGL</strong>
-                                <span>Graphics API</span>
-                            </div>
-                            <div class="tech-item">
-                                <strong>GLFW</strong>
-                                <span>Windowing</span>
-                            </div>
-                            <div class="tech-item">
-                                <strong>GLM</strong>
-                                <span>Mathematics</span>
-                            </div>
-                        </div>
+                <div class="card-list">
+                    <div class="card">
+                        <strong>Graphics</strong>
+                        <p>OpenGL 4.6, GLFW, GLAD, GLM</p>
                     </div>
-
-                    <div class="tech-category">
-                        <h3>Assets</h3>
-                        <div class="tech-list">
-                            <div class="tech-item">
-                                <strong>Assimp</strong>
-                                <span>Model loading</span>
-                            </div>
-                            <div class="tech-item">
-                                <strong>stb_image</strong>
-                                <span>Image loading</span>
-                            </div>
-                            <div class="tech-item">
-                                <strong>nlohmann/json</strong>
-                                <span>JSON parsing</span>
-                            </div>
-                        </div>
+                    <div class="card">
+                        <strong>Assets</strong>
+                        <p>Assimp, SOIL2, nlohmann/json</p>
                     </div>
-
-                    <div class="tech-category">
-                        <h3>Editor</h3>
-                        <div class="tech-list">
-                            <div class="tech-item">
-                                <strong>ImGui</strong>
-                                <span>UI framework</span>
-                            </div>
-                            <div class="tech-item">
-                                <strong>ImGuizmo</strong>
-                                <span>Transform gizmos</span>
-                            </div>
-                        </div>
+                    <div class="card">
+                        <strong>Editor</strong>
+                        <p>Dear ImGui, ImGuizmo</p>
                     </div>
-
-                    <div class="tech-category">
-                        <h3>Physics</h3>
-                        <div class="tech-list">
-                            <div class="tech-item">
-                                <strong>Jolt Physics</strong>
-                                <span>Simulation</span>
-                            </div>
-                        </div>
+                    <div class="card">
+                        <strong>Physics</strong>
+                        <p>Jolt Physics</p>
+                    </div>
+                    <div class="card">
+                        <strong>Scripting</strong>
+                        <p>Lua</p>
+                    </div>
+                    <div class="card">
+                        <strong>Audio</strong>
+                        <p>miniaudio (.mp3, .wav, .ogg, .flac)</p>
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
 
-        <footer class="bottom">
-            <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
-        </footer>
-
+        <img id="bonfire-background" src="resources/bonfire-background.png" alt="background">
+        <img id="bonfire-animation" src="resources/bonfire-animation.gif" alt="animation">
         <canvas id="ember-canvas"></canvas>
-        <canvas id="bg"></canvas>
     </body>
 </html>
 
 <script src="script/nav.js"></script>
 <script src="script/ember_system.js"></script>
-<script src="script/day_cycle.js"></script>

@@ -21,12 +21,14 @@ class EmberSystem {
         ];
 
         this.init();
+        this.restoreEmberState();
         this.animate();
     }
 
     init() {
         this.resize();
         window.addEventListener('resize', () => this.resize());
+        window.addEventListener('beforeunload', () => this.saveEmberState());
     }
 
     resize() {
@@ -36,8 +38,7 @@ class EmberSystem {
         this.spawnY = this.canvas.height;
         this.spawnRadius = 50;
         const totalHeight = document.documentElement.scrollHeight;
-        this.heightScale = 1000 / totalHeight; // Baseline: 1000px = scale of 1
-        console.log('Height scale:', this.heightScale);
+        this.heightScale = 1000 / totalHeight;
     }
 
     createEmber() {
@@ -107,8 +108,62 @@ class EmberSystem {
         this.draw();
         requestAnimationFrame(() => this.animate());
     }
+
+    saveEmberState() {
+        if (this.embers.length > 0) {
+            const emberState = this.embers.map(ember => ({
+                x: ember.x,
+                y: ember.y,
+                x_velocity: ember.x_velocity,
+                y_velocity: ember.y_velocity,
+                life: ember.life,
+                maxLife: ember.maxLife,
+                size: ember.size,
+                color: ember.color,
+                flicker: ember.flicker
+            }));
+            sessionStorage.setItem('emberState', JSON.stringify(emberState));
+            sessionStorage.setItem('emberTimestamp', Date.now().toString());
+        }
+    }
+
+    restoreEmberState() {
+        const savedState = sessionStorage.getItem('emberState');
+        const timestamp = sessionStorage.getItem('emberTimestamp');
+
+        if (savedState && timestamp) {
+            const timeDiff = Date.now() - parseInt(timestamp);
+
+            if (timeDiff < 2000) {
+                try {
+                    const savedEmbers = JSON.parse(savedState);
+                    this.embers = savedEmbers.map(data => ({
+                        x: data.x,
+                        y: data.y,
+                        x_velocity: data.x_velocity,
+                        y_velocity: data.y_velocity,
+                        life: data.life,
+                        maxLife: data.maxLife,
+                        size: data.size,
+                        color: data.color,
+                        flicker: data.flicker
+                    }));
+                } catch (e) {
+                    this.embers = [];
+                }
+            }
+        }
+    }
 }
 
+let emberSystem;
+
 document.addEventListener('DOMContentLoaded', () => {
-    new EmberSystem();
+    emberSystem = new EmberSystem();
 });
+
+function saveEmberState() {
+    if (emberSystem) {
+        emberSystem.saveEmberState();
+    }
+}
