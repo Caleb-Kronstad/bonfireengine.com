@@ -1,6 +1,6 @@
 # bonfireengine.com
 
-  Official website for [Bonfire](https://github.com/Caleb-Kronstad/Bonfire), a 3D graphics engine
+  Official website for [Bonfire](https://codeberg.org/Caleb-Kronstad/Bonfire), a 3D graphics engine
 
   ## Tech Stack
 
